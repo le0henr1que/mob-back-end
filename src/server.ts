@@ -8,7 +8,7 @@ import { Request, Response } from "express";
 
 const PORT = process.env.PORT || 5000;
 
-const createServer = async () => {
+// const createServer = async () => {
   // await connectToMongoDb();
   app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
   app.get('/', (_req: Request, res: Response) => {
@@ -18,5 +18,5 @@ const createServer = async () => {
     console.log(`Running at http://localhost:${PORT}`);
     console.log(`Documentation at http://localhost:${PORT}/api/docs`);
   });
-};
-createServer();
+// };
+// createServer();

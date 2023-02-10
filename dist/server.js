@@ -22,15 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -42,16 +33,16 @@ const app_1 = require("./app");
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swagger_json_1 = __importDefault(require("./utils/config/swagger.json"));
 const PORT = process.env.PORT || 5000;
-const createServer = () => __awaiter(void 0, void 0, void 0, function* () {
-    // await connectToMongoDb();
-    app_1.app.use("/api/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default));
-    app_1.app.get('/', (_req, res) => {
-        return res.send('Express Typescript don Vercel');
-    });
-    app_1.app.listen(PORT, () => {
-        console.log(`Running at http://localhost:${PORT}`);
-        console.log(`Documentation at http://localhost:${PORT}/api/docs`);
-    });
+// const createServer = async () => {
+// await connectToMongoDb();
+app_1.app.use("/api/docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default));
+app_1.app.get('/', (_req, res) => {
+    return res.send('Express Typescript don Vercel');
 });
-createServer();
+app_1.app.listen(PORT, () => {
+    console.log(`Running at http://localhost:${PORT}`);
+    console.log(`Documentation at http://localhost:${PORT}/api/docs`);
+});
+// };
+// createServer();
 //# sourceMappingURL=server.js.map
