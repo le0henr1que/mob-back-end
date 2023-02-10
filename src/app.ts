@@ -1,10 +1,7 @@
 import express from "express";
-// import { router } from "./routes";
-
+import { router } from "./routes";
 import cors from "cors";
-// import { connectToMongoDb } from "./database/mongo";
-
-// connectToMongoDb();
+import { PrismaClient } from '@prisma/client';
 
 const app = express();
 
@@ -15,6 +12,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
-// app.use(router);
+app.use(router);
+
 
 export { app };

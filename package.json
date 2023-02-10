@@ -10,9 +10,13 @@
     "dev:server": "tsnd src/server.ts",
     "lint": "eslint . --ext .ts,.js"
   },
+  "prisma": {
+    "schema": "./src/database/prisma/schema.prisma"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^4.10.1",
     "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
