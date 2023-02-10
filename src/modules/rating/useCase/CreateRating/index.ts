@@ -1,4 +1,4 @@
-import * as Prisma from "../../repositories/CreateRating/Implementation/PrismaCreateRating";
+import * as Prisma from "../../repositories/CreateRating/implementation/PrismaCreateRating";
 import { CreateRatingController } from "./CreateRatingController";
 import { CreateRatingUseCase } from "./CreateRatingUseCase";
 
