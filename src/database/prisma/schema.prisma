@@ -21,7 +21,7 @@ model Rating {
   id              String   @id @default(uuid())
   userId          String
   localId          String
-  score            String
+  score            Int
   createdAt       DateTime @default(now())
   local Local @relation(fields: [localId], references: [id])
   user User @relation(fields: [userId], references: [id])

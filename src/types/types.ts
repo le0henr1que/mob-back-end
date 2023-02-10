@@ -2,5 +2,9 @@ export interface User {
     name?:string
 }
 export interface Rating {       
-    score:number       
+    id?: string,
+    userId?: string,
+    localId?: string,
+    score: number,
+    createdAt?: Date,
 }

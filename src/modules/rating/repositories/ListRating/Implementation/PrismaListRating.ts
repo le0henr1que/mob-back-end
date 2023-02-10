@@ -5,7 +5,7 @@ import { PrismaClient } from '@prisma/client';
 
 
 export class PrismaRepositoryListRating implements IListRating  {
-    async executeList(): Promise<any[]> {
+    async executeList(): Promise<Rating[]> {
 
         const prisma = new PrismaClient();
         return await prisma.rating.findMany()
