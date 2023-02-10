@@ -13,6 +13,9 @@
     "dev:server": "tsnd src/server.ts",
     "lint": "eslint . --ext .ts,.js"
   },
+  "engines":{
+    "node":"14.x"
+  },
   "pre-commit": [
     "ts.check",
     "build",
