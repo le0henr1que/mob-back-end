@@ -1,13 +1,20 @@
 import { Response, Request } from "express";
-import { ListRatingUseCase } from "./ListRatingUseCase";
+import { UpdateRatingUseCase } from "./UpdateRatingUseCase";
+import { Rating } from "types";
 
-export class ListRatingController {
-  constructor(private listRatingUseCase: ListRatingUseCase) {}
+export class UpdateRatingController {
+  constructor(private updateRatingUseCase: UpdateRatingUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {
-      console.log(request.query);
-      const rating = await this.listRatingUseCase.execute();
+      const dataRating: Rating = {
+        id: request.params.id,
+        userId: request.body.userId,
+        localId: request.body.localId,
+        score: request.body.score,
+      };
+
+      const rating = await this.updateRatingUseCase.execute(dataRating);
       return response.status(200).json({ error: false, rating });
     } catch (err) {
       console.log(err);

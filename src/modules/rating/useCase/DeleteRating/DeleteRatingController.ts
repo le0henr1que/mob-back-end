@@ -1,13 +1,13 @@
 import { Response, Request } from "express";
-import { CreateRatingUseCase } from "./CreateRatingUseCase";
+import { DeleteRatingUseCase } from "./DeleteRatingUseCase";
 
-export class CreateRatingController {
-  constructor(private createRatingUseCase: CreateRatingUseCase) {}
+export class DeleteRatingController {
+  constructor(private deleteRatingUseCase: DeleteRatingUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {
-      const rating = await this.createRatingUseCase.execute(request.body);
-      return response.status(201).json({ error: false, rating });
+      await this.deleteRatingUseCase.execute(request.params.id);
+      return response.status(204).json({ error: false });
     } catch (err) {
       console.log(err);
       if (err instanceof Error) {

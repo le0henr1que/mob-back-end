@@ -1,15 +1,15 @@
 import { Response, Request } from "express";
-import { CreateRatingUseCase } from "./CreateRatingUseCase";
+import { ListByIdRatingRatingUseCase } from "./ListByIdRatingUseCase";
 
-export class CreateRatingController{
-  constructor(private createRatingUseCase: CreateRatingUseCase) {}
+export class ListByIdRatingController {
+  constructor(private listByIdRatingUseCase: ListByIdRatingRatingUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     try {
-      
-      const rating = await this.createRatingUseCase.execute(request.body);
-      return response.status(201).json({ error: false, rating });
-
+      const rating = await this.listByIdRatingUseCase.execute(
+        request.params.id
+      );
+      return response.status(200).json({ error: false, rating });
     } catch (err) {
       console.log(err);
       if (err instanceof Error) {

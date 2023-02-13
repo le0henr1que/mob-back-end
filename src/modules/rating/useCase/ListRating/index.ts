@@ -2,7 +2,7 @@ import * as Prisma from "../../repositories/ListRating/Implementation/PrismaList
 import { ListRatingController } from "./ListRatingController";
 import { ListRatingUseCase } from "./ListRatingUseCase";
 
-const PrismaRatingRepository = new Prisma.PrismaRepositoryListRating()
+const PrismaRatingRepository = new Prisma.PrismaRepositoryListRating();
 
 const listRatingUseCase = new ListRatingUseCase(PrismaRatingRepository);
 

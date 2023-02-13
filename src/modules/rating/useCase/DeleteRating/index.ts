@@ -1,11 +1,11 @@
-import * as Prisma from "../../repositories/CreateRating/implementation/PrismaCreateRating";
-import { CreateRatingController } from "./CreateRatingController";
-import { CreateRatingUseCase } from "./CreateRatingUseCase";
+import * as Prisma from "../../repositories/DeleteRating/implementation/PrismaDeleteRating";
+import { DeleteRatingController } from "./DeleteRatingController";
+import { DeleteRatingUseCase } from "./DeleteRatingUseCase";
 
-const PrismaRatingRepository = new Prisma.PrismaRepositoryCreateRating()
+const PrismaRatingRepository = new Prisma.PrismaRepositoryDeleteRating();
 
-const createRatingUseCase = new CreateRatingUseCase(PrismaRatingRepository);
+const deleteRatingUseCase = new DeleteRatingUseCase(PrismaRatingRepository);
 
-const createRatingController = new CreateRatingController(createRatingUseCase);
+const deleteRatingController = new DeleteRatingController(deleteRatingUseCase);
 
-export { createRatingUseCase, createRatingController };
+export { deleteRatingUseCase, deleteRatingController };

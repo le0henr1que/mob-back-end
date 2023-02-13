@@ -1,10 +1,10 @@
 export interface User {
-    name?:string
+  name?: string;
 }
-export interface Rating {       
-    id?: string,
-    userId?: string,
-    localId?: string,
-    score: number,
-    createdAt?: Date,
+export interface Rating {
+  id?: string;
+  userId?: string;
+  localId?: string;
+  score: number;
+  createdAt?: Date;
 }
