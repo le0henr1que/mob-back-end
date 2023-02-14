@@ -7,11 +7,23 @@ import { listByIdRatingController } from "./modules/rating/useCase/ListByIdRatin
 import { updateRatingController } from "./modules/rating/useCase/UpdateRating/index";
 //local
 import { createLocalController } from "./modules/local/useCase/CreateLocal/index";
+import { getLocalController } from "./modules/local/useCase/GetLocal/index";
+import { listByIdLocalController } from "./modules/local/useCase/ListByIdLocal/index";
+import { updateLocalController } from "./modules/local/useCase/UpdateLocal/index";
 
 const router = Router();
 
 router.post("/local", (request, response) => {
   return createLocalController.handle(request, response);
+});
+router.get("/local", (request, response) => {
+  return getLocalController.handle(request, response);
+});
+router.get("/local/:id", (request, response) => {
+  return listByIdLocalController.handle(request, response);
+});
+router.put("/local/:id", (request, response) => {
+  return updateLocalController.handle(request, response);
 });
 
 router.get("/ratings", (request, response) => {
