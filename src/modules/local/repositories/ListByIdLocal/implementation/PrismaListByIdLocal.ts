@@ -10,6 +10,13 @@ export class PrismaRepositoryListByIdLocal implements ListByIdLocal {
       where: {
         id: localId,
       },
+      include:{
+        _count:{
+            select:{
+                rating:true
+            }
+        }
+    }
     });
   }
 }
