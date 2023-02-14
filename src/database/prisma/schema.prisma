@@ -30,5 +30,5 @@ model Rating {
 model Local {
   id String @id @default(uuid())
   name String
-  rting Rating[]
+  rating Rating[]
 }

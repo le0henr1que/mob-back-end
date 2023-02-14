@@ -8,3 +8,9 @@ export interface Rating {
   score: number;
   createdAt?: Date;
 }
+
+export interface Local {
+  id?: string;
+  name: string;
+  rting?: string;
+}
