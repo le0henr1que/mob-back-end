@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./dev.db"
 }
 
 
@@ -16,14 +16,22 @@ model User {
   name          String
   email         String
   assessment    Assessment[]
+model User {
+  id        String @id @default(uuid())
+  name     String
+  rating       Rating[]
 }
 
 model Assessment {
+model Rating {
   id              String   @id @default(uuid())
   userId          String
   local           Local @relation(fields: [userId], references: [id])
   note            Int
   deficiency      String
+  userId          String
+  localId          String
+  score            Int
   createdAt       DateTime @default(now())
   user            User @relation(fields: [userId], references: [id])
 }
@@ -33,4 +41,12 @@ model Local {
   id              String @id @default(uuid())
   name            String
   assessment      Assessment[]
+  local Local @relation(fields: [localId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Local {
+  id String @id @default(uuid())
+  name String
+  rating Rating[]
 }

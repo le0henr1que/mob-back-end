@@ -1,0 +1,8 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AutoPark",
+    "description": "AutoPark é uma aplicação web que permite aos usuários visualizar e gerenciar uma lista de veículos. A aplicação usa autenticação JWT para garantir que somente usuários autorizados tenham acesso às informações sensíveis sobre os veículos.",
+    "version": "1.0.0"
+  }
+}
