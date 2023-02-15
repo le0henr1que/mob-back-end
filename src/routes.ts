@@ -45,7 +45,7 @@ router.put("/local/:id", (request, response) => {
 router.get("/ratings", (request, response) => {
   return listRatingController.handle(request, response);
 });
-router.get("/ratings/:id", (request, response) => {
+router.get("/rating/:id", (request, response) => {
   return listByIdRatingController.handle(request, response);
 });
 router.post("/ratings", (request, response) => {
