@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 import { app } from "./app";
-import { Request, Response } from "express";
+import { errorMiddleware } from "./middlewares/error/errorMiddleware";
 
 const PORT = process.env.PORT || 5000;
 

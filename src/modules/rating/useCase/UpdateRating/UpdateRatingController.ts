@@ -1,34 +1,35 @@
 import { Response, Request } from "express";
 import { UpdateRatingUseCase } from "./UpdateRatingUseCase";
 import { Rating } from "types";
+import { HttpError } from "../../../../shared/errors/appError";
 
 export class UpdateRatingController {
   constructor(private updateRatingUseCase: UpdateRatingUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    try {
+
+      const { userId, localId, score } = request.body;
+      const { id } = request.params;
+
+      if(!userId){
+        throw new HttpError("Propriedade 'userId' não encontrada no corpo da requisição", 404);
+      }
+      if(!localId){
+        throw new HttpError("Propriedade 'localId' não encontrada no corpo da requisição", 404);
+      }
+      if(!score){
+        throw new HttpError("Propriedade 'score' não encontrada no corpo da requisição", 404);
+      }
+
       const dataRating: Rating = {
-        id: request.params.id,
-        userId: request.body.userId,
-        localId: request.body.localId,
-        score: request.body.score,
+        id,
+        userId,
+        localId,
+        score
       };
 
       const rating = await this.updateRatingUseCase.execute(dataRating);
       return response.status(200).json({ error: false, rating });
-    } catch (err) {
-      console.log(err);
-      if (err instanceof Error) {
-        return response.status(400).json({
-          error: true,
-          message: err.message,
-        });
-      } else {
-        return response.status(400).json({
-          error: true,
-          message: "Unexpected error",
-        });
-      }
-    }
+   
   }
 }

@@ -1,13 +1,14 @@
+import { Handler, NextFunction, Request, Response } from "express";
 
 
-export class AppError extends Error {
+export class HttpError extends Error {
 
     public readonly message: string;
     public readonly statusCode: number;
   
     constructor(message: string, statusCode:number) {
       super(message);
-      Object.setPrototypeOf(this, AppError.prototype);
+      Object.setPrototypeOf(this, HttpError.prototype);
         
       
       this.message = message;
@@ -15,4 +16,12 @@ export class AppError extends Error {
 
     //   console.log("App Erro called")
     }
+    
   }
+  
+export const resolver = (handlerFn:Handler) => {
+    return (request:Request, response:Response, next:NextFunction)=> {
+        return Promise.resolve(handlerFn(request, response, next))
+            .catch(e => next(e))
+    }
+}

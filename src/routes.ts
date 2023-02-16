@@ -1,4 +1,5 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
+import { resolver } from "./shared/errors/appError";
 //Rating
 import { listRatingController } from "./modules/rating/useCase/ListRating/index";
 import { createRatingController } from "./modules/rating/useCase/CreateRating/index";
@@ -18,44 +19,44 @@ import { updateUserController } from "./modules/user/useCase/UpdateUser/index"
 
 const router = Router();
 
-router.post("/user", (request, response) => {
+router.post("/user", resolver((request, response) => {
   return createUserController.handle(request, response);
-});
-router.get("/user/:id", (request, response) => {
+}));
+router.get("/user/:id", resolver((request, response) => {
   return getUniqueUserController.handle(request, response);
-});
-router.put("/user/:id", (request, response) => {
+}));
+router.put("/user/:id", resolver((request, response) => {
   return updateUserController.handle(request, response);
-});
-router.post("/local", (request, response) => {
+}));
+router.post("/local", resolver((request, response) => {
   return createLocalController.handle(request, response);
-});
-router.get("/local", (request, response) => {
+}));
+router.get("/local", resolver((request, response) => {
   return getLocalController.handle(request, response);
-});
-router.get("/local/:id", (request, response) => {
+}));
+router.get("/local/:id", resolver((request, response) => {
   return listByIdLocalController.handle(request, response);
-});
-router.get("/local/:id/ratings", (request, response) => {
+}));
+router.get("/local/:id/ratings", resolver((request, response) => {
   return ratingListByLocalController.handle(request, response);
-});
-router.put("/local/:id", (request, response) => {
+}));
+router.put("/local/:id", resolver((request, response) => {
   return updateLocalController.handle(request, response);
-});
-router.get("/ratings", (request, response) => {
+}));
+router.get("/ratings", resolver((request, response) => {
   return listRatingController.handle(request, response);
-});
-router.get("/rating/:id", (request, response) => {
+}));
+router.get("/rating/:id", resolver((request, response) => {
   return listByIdRatingController.handle(request, response);
-});
-router.post("/ratings", (request, response) => {
+}));
+router.post("/rating", resolver((request, response) => {
   return createRatingController.handle(request, response);
-});
-router.put("/ratings/:id", (request, response) => {
+}));
+router.put("/ratings/:id", resolver((request, response) => {
   return updateRatingController.handle(request, response);
-});
-router.delete("/ratings/:id", (request, response) => {
+}));
+router.delete("/ratings/:id", resolver((request, response) => {
   return deleteRatingController.handle(request, response);
-});
+}));
 
 export { router };

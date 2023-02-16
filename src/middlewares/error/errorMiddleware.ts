@@ -1,23 +1,20 @@
 import { Request, Response, NextFunction } from 'express';
-import { AppError } from '../../shared/errors/appError';
+import { HttpError } from '../../shared/errors/appError';
 
 export function errorMiddleware(err: Error, req: Request, res: Response, next: NextFunction) {
     
-    console.log("Middleware pass")
 
-  if (err instanceof AppError) {
+  if (err instanceof HttpError) {
         
-    console.log("Middleware pass instance of")
-
     return res.status(err.statusCode).json({
-      status: 'error',
+      error: true,
       message: err.message,
     });
     
   }
 
   return res.status(500).json({
-    status: 'error',
+    error: true,
     message: 'Internal server error',
   });
   
