@@ -4,7 +4,7 @@ import { routerLocal } from "./modules/local/localRoutes";
 import { routerRating } from "./modules/Rating/ratingRoutes";
 import cors from "cors";
 import { errorMiddleware } from './middlewares/error/errorMiddleware';
-import { corsOptions } from "./utils/config/cors";
+import { corsOptions } from "./utils/config/Server/cors";
 import swaggerUI from "swagger-ui-express";
 import swaggerDocument from "./utils/config/swagger.json";
 

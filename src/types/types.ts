@@ -1,6 +1,8 @@
 export interface User {
-  id?:string;
+  id?: string;
   name: string;
+  email: string;
+  password: string;
 }
 export interface Rating {
   id?: string;
@@ -14,4 +16,8 @@ export interface Local {
   id?: string;
   name: string;
   rating?: string;
+}
+export interface ModuleJWT extends Document {
+  secret: string;
+  expireIn: string;
 }
