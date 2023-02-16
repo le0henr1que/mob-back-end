@@ -1,5 +1,7 @@
 import express, { NextFunction, Request, Response} from "express";
-import { router } from "./routes";
+import { routerUser } from "./modules/user/userRoutes";
+import { routerLocal } from "./modules/local/localRoutes";
+import { routerRating } from "./modules/Rating/ratingRoutes";
 import cors from "cors";
 import { errorMiddleware } from './middlewares/error/errorMiddleware';
 import { corsOptions } from "./utils/config/cors";
@@ -13,7 +15,11 @@ const app = express();
 app.use(express.json());
 app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use(cors(corsOptions));
-app.use(router);
+
+app.use(routerUser);
+app.use(routerLocal);
+app.use(routerRating);
+
 app.use(errorMiddleware);
 
 
