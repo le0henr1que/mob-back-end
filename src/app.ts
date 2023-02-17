@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response} from "express";
 import { routerUser } from "../src/modules/user/userRoutes";
 import { routerLocal } from "../src/modules/local/localRoutes";
-import { routerRating } from "../src/modules/Rating/ratingRoutes";
+import { routerRating } from "../src/modules/rating/ratingRoutes";
 import { authenticationRoute } from "../src/modules/authentication/authenticationRoute";
 import cors from "cors";
 import { errorMiddleware } from './middlewares/error/errorMiddleware';
