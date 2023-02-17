@@ -1,8 +1,8 @@
 import express, { NextFunction, Request, Response} from "express";
 import { routerUser } from "./modules/user/userRoutes";
-import { routerLocal } from "../src/modules/local/localRoutes";
-import { routerRating } from "../src/modules/rating/ratingRoutes";
-import { authenticationRoute } from "../src/modules/authentication/authenticationRoute";
+import { routerLocal } from "./modules/local/localRoutes";
+import { routerRating } from "./modules/rating/ratingRoutes";
+import { authenticationRoute } from "./modules/authentication/authenticationRoute";
 import cors from "cors";
 import { errorMiddleware } from './middlewares/error/errorMiddleware';
 import { corsOptions } from "./utils/config/Server/cors";
