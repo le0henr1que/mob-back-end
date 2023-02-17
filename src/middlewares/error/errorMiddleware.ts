@@ -3,7 +3,7 @@ import { HttpError } from '../../shared/errors/appError';
 
 export function errorMiddleware(err: Error, req: Request, res: Response, next: NextFunction) {
     
-
+  console.log(err)
   if (err instanceof HttpError) {
         
     return res.status(err.statusCode).json({

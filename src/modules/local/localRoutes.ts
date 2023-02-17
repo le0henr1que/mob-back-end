@@ -5,11 +5,12 @@ import { updateLocalController } from "./useCase/UpdateLocal/index";
 import { ratingListByLocalController } from "./useCase/RatingListByLocal/index";
 import { Router } from "express";
 import { resolver } from "../../shared/errors/appError";
+import  authMiddleware  from "../../middlewares/authentication/authenticationMiddleware"
 
 
 const routerLocal = Router()
 
-routerLocal.post("/local", resolver((request, response) => {
+routerLocal.post("/local", authMiddleware, resolver((request, response) => {
     return createLocalController.handle(request, response);
 }));
 routerLocal.get("/local", resolver((request, response) => {

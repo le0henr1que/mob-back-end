@@ -1,9 +1,11 @@
 import { ModuleJWT } from "types";
 
-  
+const jwtSecret = process.env.JWT_SECRET;
+const jwtExpireIn = process.env.JWT_EXPIRE;
+
   const jwtModule = <ModuleJWT>{
-    secret: "c963ca56d7ee4d9ef16e856f2d47cb148acc9618d6c401eccb391bdea0dd8dd2",
-    expireIn: "6h",
+    secret: jwtSecret,
+    expireIn: jwtExpireIn,
   };
   
   export { jwtModule };

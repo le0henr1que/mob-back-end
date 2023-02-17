@@ -21,6 +21,7 @@ export class CreateUserController {
       }
 
       const user = await this.createUserUseCase.execute(userArray);
+      delete user.password;
       return response.status(201).json({ error: false, user });
     
   
