@@ -2,7 +2,8 @@ import * as Prisma from "../../repositories/RatingListByLocal/implementation/Pri
 import { RatingListByLocalController } from "./RatingListByLocalController";
 import { RatingListByLocalUseCase } from "./RatingListByLocalUseCase";
 
-const PrismaRatingListRepository = new Prisma.PrismaRepositoryRatingListByLocal()
+const PrismaRatingListRepository =
+  new Prisma.PrismaRepositoryRatingListByLocal();
 
 const ratingListByLocalUseCase = new RatingListByLocalUseCase(
   PrismaRatingListRepository

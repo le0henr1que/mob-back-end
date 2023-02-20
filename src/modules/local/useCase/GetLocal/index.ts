@@ -2,7 +2,7 @@ import * as Prisma from "../../repositories/GetLocal/implementation/PrismaGetLoc
 import { GetLocalController } from "./GetLocalController";
 import { GetLocalUseCase } from "./GetLocalUseCase";
 
-const PrismaLocalRepository = new Prisma.PrismaRepositoryGetLocal()
+const PrismaLocalRepository = new Prisma.PrismaRepositoryGetLocal();
 
 const getLocalUseCase = new GetLocalUseCase(PrismaLocalRepository);
 

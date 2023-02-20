@@ -6,14 +6,23 @@ import { updateUserController } from "./useCase/UpdateUser/index";
 
 const routerUser = Router();
 
-routerUser.post("/user", resolver((request, response) => {
+routerUser.post(
+  "/user",
+  resolver((request, response) => {
     return createUserController.handle(request, response);
-}));
-routerUser.get("/user/:id", resolver((request, response) => {
+  })
+);
+routerUser.get(
+  "/user/:id",
+  resolver((request, response) => {
     return getUniqueUserController.handle(request, response);
-}));
-routerUser.put("/user/:id", resolver((request, response) => {
+  })
+);
+routerUser.put(
+  "/user/:id",
+  resolver((request, response) => {
     return updateUserController.handle(request, response);
-}));
+  })
+);
 
-export { routerUser }
+export { routerUser };

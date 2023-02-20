@@ -2,7 +2,7 @@ import * as Prisma from "../../repositories/CreateLocal/implementation/PrismaCre
 import { CreateLocalController } from "./CreateLocalController";
 import { CreateLocalUseCase } from "./CreateLocalUseCase";
 
-const PrismaLocalRepository = new Prisma.PrismaRepositoryCreateLocal()
+const PrismaLocalRepository = new Prisma.PrismaRepositoryCreateLocal();
 
 const createLocalUseCase = new CreateLocalUseCase(PrismaLocalRepository);
 

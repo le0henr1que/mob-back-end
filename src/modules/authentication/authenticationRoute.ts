@@ -3,11 +3,13 @@ import { authController } from "./useCae/index";
 import { Router } from "express";
 import { resolver } from "../../shared/errors/appError";
 
+const authenticationRoute = Router();
 
-const authenticationRoute = Router()
-
-authenticationRoute.post("/login", resolver((request, response) => {
+authenticationRoute.post(
+  "/login",
+  resolver((request, response) => {
     return authController.handle(request, response);
-}));
+  })
+);
 
-export { authenticationRoute }
+export { authenticationRoute };

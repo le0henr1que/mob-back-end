@@ -6,9 +6,7 @@ export class DeleteRatingController {
   constructor(private deleteRatingUseCase: DeleteRatingUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-
-      await this.deleteRatingUseCase.execute(request.params.id);
-      return response.status(204).json({ error: false });
-   
+    await this.deleteRatingUseCase.execute(request.params.id);
+    return response.status(204).json({ error: false });
   }
 }

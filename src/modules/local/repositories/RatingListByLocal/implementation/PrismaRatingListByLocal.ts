@@ -8,9 +8,8 @@ export class PrismaRepositoryRatingListByLocal implements RatingListByLocal {
 
     return await prisma.rating.findMany({
       where: {
-        localId:localId
-      }
+        localId: localId,
+      },
     });
-
   }
 }

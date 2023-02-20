@@ -4,7 +4,9 @@ import { AuthenticationCase } from "./AuthenticationUseCase";
 
 const PrismaUserRepositoryAuthentication = new Prisma.PrismaAuthentication();
 
-const authenticationUseCase = new AuthenticationCase(PrismaUserRepositoryAuthentication);
+const authenticationUseCase = new AuthenticationCase(
+  PrismaUserRepositoryAuthentication
+);
 
 const authController = new authenticationController(authenticationUseCase);
 

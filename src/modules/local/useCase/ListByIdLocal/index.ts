@@ -2,11 +2,9 @@ import * as Prisma from "../../repositories/ListByIdLocal/implementation/PrismaL
 import { ListByIdLocalController } from "./ListByIdLocalController";
 import { ListByIdLocalUseCase } from "./ListByIdLocalUseCase";
 
-const PrismaLocalRepository = new Prisma.PrismaRepositoryListByIdLocal()
+const PrismaLocalRepository = new Prisma.PrismaRepositoryListByIdLocal();
 
-const listByIdLocalUseCase = new ListByIdLocalUseCase(
-  PrismaLocalRepository
-);
+const listByIdLocalUseCase = new ListByIdLocalUseCase(PrismaLocalRepository);
 
 const listByIdLocalController = new ListByIdLocalController(
   listByIdLocalUseCase

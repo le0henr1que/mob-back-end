@@ -2,10 +2,12 @@ import * as Prisma from "../../repositories/GetUniqueUser/implementation/PrismaG
 import { GetUniqueUserController } from "./GetUniqueUserController";
 import { GetUniqueUserUseCase } from "./GetUniqueUserUseCase";
 
-const PrismaUserRepository = new Prisma.PrismaGetUniqueUser()
+const PrismaUserRepository = new Prisma.PrismaGetUniqueUser();
 
 const getUniqueUserUseCase = new GetUniqueUserUseCase(PrismaUserRepository);
 
-const getUniqueUserController = new GetUniqueUserController(getUniqueUserUseCase);
+const getUniqueUserController = new GetUniqueUserController(
+  getUniqueUserUseCase
+);
 
 export { getUniqueUserUseCase, getUniqueUserController };

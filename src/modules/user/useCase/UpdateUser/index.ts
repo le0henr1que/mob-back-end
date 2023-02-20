@@ -2,7 +2,7 @@ import * as Prisma from "../../repositories/UpdateUser/implementation/PrismaUpda
 import { UpdateUserController } from "./UpdataUserController";
 import { UpdateUserUseCase } from "./UpdateUserUseCase";
 
-const PrismaUserRepository = new Prisma.PrismaUpdateUser()
+const PrismaUserRepository = new Prisma.PrismaUpdateUser();
 
 const updateUserUseCase = new UpdateUserUseCase(PrismaUserRepository);
 

@@ -1,5 +1,5 @@
 import { Local } from "types";
 
-export interface UpdateLocal{
-    executeUpdate(dataLocalUpdate:Local): Promise<Local>;
+export interface UpdateLocal {
+  executeUpdate(dataLocalUpdate: Local): Promise<Local>;
 }

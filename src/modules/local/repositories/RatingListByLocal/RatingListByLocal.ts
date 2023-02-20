@@ -1,5 +1,5 @@
 import { Rating } from "types";
 
 export interface RatingListByLocal {
-    executeRatingListByLocal(localId:string): Promise<Rating[]>
+  executeRatingListByLocal(localId: string): Promise<Rating[]>;
 }

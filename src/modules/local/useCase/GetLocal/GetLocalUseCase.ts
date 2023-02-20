@@ -5,6 +5,6 @@ export class GetLocalUseCase {
   constructor(private localRepositoryGet: IGetLocal) {}
 
   async execute() {
-    return await this.localRepositoryGet.executeGet()
+    return await this.localRepositoryGet.executeGet();
   }
 }

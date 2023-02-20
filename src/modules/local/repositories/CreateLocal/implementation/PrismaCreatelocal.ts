@@ -13,5 +13,4 @@ export class PrismaRepositoryCreateLocal implements ICreateLocal {
       },
     });
   }
-  
 }

@@ -5,12 +5,10 @@ export class ListByIdLocalController {
   constructor(private listByIdLocalUseCase: ListByIdLocalUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    
-      const { id } = request.params
+    const { id } = request.params;
 
-      const local = await this.listByIdLocalUseCase.execute(id);
+    const local = await this.listByIdLocalUseCase.execute(id);
 
-      return response.status(200).json({ error: false, local });
-   
+    return response.status(200).json({ error: false, local });
   }
 }
