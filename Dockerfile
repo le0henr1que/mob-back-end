@@ -5,4 +5,5 @@ RUN npm install
 
 COPY . .
 RUN npm run build
+CMD [ "npx", "prisma", "generate"]
 CMD [ "npm", "start" ]
