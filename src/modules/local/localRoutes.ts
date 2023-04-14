@@ -34,9 +34,7 @@ routerLocal.get(
     return ratingListByLocalController.handle(request, response);
   })
 );
-routerLocal.put(
-  "/local/:id",
-  resolver((request, response) => {
+routerLocal.put("/local/:id",resolver((request, response) => {
     return updateLocalController.handle(request, response);
   })
 );
