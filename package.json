@@ -9,10 +9,8 @@
     "build": "tsc --project tsconfig.json",
     "dev:server": "tsnd src/server.ts",
     "db:migrate": "npx prisma migrate dev --create-only",
-    
-    "lint": "eslint \"**/*.js\" --quiet",
-    "lint:fix": "eslint \"**/*.js\" --quiet --fix",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
+    "lint": "eslint ./src/**/*.ts",
+    "format": "prettier --write ./src/**/*.ts"
   },
   "husky": {
     "hooks": {
@@ -20,13 +18,13 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,jsx,json,md}": [
-      "npm run lint:fix",
+    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "npm run format",
+      "npm run lint",
       "git add"
     ]
-  }, 
-
+  },
+  
   "prisma": {
     "schema": "./src/database/prisma/schema.prisma"
   },
