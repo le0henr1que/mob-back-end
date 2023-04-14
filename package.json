@@ -10,14 +10,10 @@
     "dev:server": "tsnd src/server.ts",
     "db:migrate": "npx prisma migrate dev --create-only",
     "lint": "eslint ./src/**/*.ts",
-    "format": "prettier --write ./src/**/*.ts"
+    "format": "prettier --write ./src/**/*.ts",
+    "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run format"
-    }
-  },
-  
+ 
   "prisma": {
     "schema": "./src/database/prisma/schema.prisma"
   },
