@@ -12,6 +12,11 @@
     "lint": "eslint ./src/**/*.ts",
     "format": "prettier --write ./src/**/*.ts"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run format"
+    }
+  },
   "prisma": {
     "schema": "./src/database/prisma/schema.prisma"
   },
