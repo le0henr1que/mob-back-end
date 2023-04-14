@@ -9,14 +9,24 @@
     "build": "tsc --project tsconfig.json",
     "dev:server": "tsnd src/server.ts",
     "db:migrate": "npx prisma migrate dev --create-only",
-    "lint": "eslint ./src/**/*.ts",
-    "format": "prettier --write ./src/**/*.ts"
+    
+    "lint": "eslint \"**/*.js\" --quiet",
+    "lint:fix": "eslint \"**/*.js\" --quiet --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run format"
+      "pre-commit": "lint-staged"
     }
   },
+  "lint-staged": {
+    "**/*.{js,jsx,json,md}": [
+      "npm run lint:fix",
+      "npm run format",
+      "git add"
+    ]
+  }, 
+
   "prisma": {
     "schema": "./src/database/prisma/schema.prisma"
   },
