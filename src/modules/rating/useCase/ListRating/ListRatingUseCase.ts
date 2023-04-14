@@ -1,4 +1,4 @@
-import { IListRating } from "../../repositories/ListRating/IListRating";
+import { IListRating } from '../../repositories/ListRating/IListRating';
 
 export class ListRatingUseCase {
   constructor(private ratingRepositoryListAll: IListRating) {}

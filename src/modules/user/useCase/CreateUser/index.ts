@@ -1,6 +1,6 @@
-import * as Prisma from "../../repositories/CreateUser/implementation/PrismaCreateUser";
-import { CreateUserController } from "./CreateUserController";
-import { CreateUserUseCase } from "./CreateUserUseCase";
+import * as Prisma from '../../repositories/CreateUser/implementation/PrismaCreateUser';
+import { CreateUserController } from './CreateUserController';
+import { CreateUserUseCase } from './CreateUserUseCase';
 
 const PrismaUserRepository = new Prisma.PrismaCreateUser();
 

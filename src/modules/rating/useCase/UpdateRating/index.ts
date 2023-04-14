@@ -1,6 +1,6 @@
-import * as Prisma from "../../repositories/UpdateRating/implementation/PrismaUpdateRating";
-import { UpdateRatingController } from "./UpdateRatingController";
-import { UpdateRatingUseCase } from "./UpdateRatingUseCase";
+import * as Prisma from '../../repositories/UpdateRating/implementation/PrismaUpdateRating';
+import { UpdateRatingController } from './UpdateRatingController';
+import { UpdateRatingUseCase } from './UpdateRatingUseCase';
 
 const PrismaRatingRepository = new Prisma.PrismaRepositoryUpdateRating();
 

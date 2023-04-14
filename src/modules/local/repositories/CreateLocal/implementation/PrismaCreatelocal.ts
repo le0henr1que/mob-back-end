@@ -1,6 +1,6 @@
-import { Local } from "types";
-import { ICreateLocal } from "../ICreateLocal";
-import { PrismaClient } from "@prisma/client";
+import { Local } from 'types';
+import { ICreateLocal } from '../ICreateLocal';
+import { PrismaClient } from '@prisma/client';
 
 export class PrismaRepositoryCreateLocal implements ICreateLocal {
   async executeCreate(dataLocal: Local): Promise<Local> {

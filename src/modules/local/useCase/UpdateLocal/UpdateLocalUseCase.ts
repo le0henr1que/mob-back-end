@@ -1,5 +1,5 @@
-import { UpdateLocal } from "../../repositories/UpdateLocal/IUpdateLocal";
-import { Local } from "types";
+import { UpdateLocal } from '../../repositories/UpdateLocal/IUpdateLocal';
+import { Local } from 'types';
 
 export class UpdateLocalUseCase {
   constructor(private LocalRepositoryUpdateLocal: UpdateLocal) {}

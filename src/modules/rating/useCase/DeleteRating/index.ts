@@ -1,6 +1,6 @@
-import * as Prisma from "../../repositories/DeleteRating/implementation/PrismaDeleteRating";
-import { DeleteRatingController } from "./DeleteRatingController";
-import { DeleteRatingUseCase } from "./DeleteRatingUseCase";
+import * as Prisma from '../../repositories/DeleteRating/implementation/PrismaDeleteRating';
+import { DeleteRatingController } from './DeleteRatingController';
+import { DeleteRatingUseCase } from './DeleteRatingUseCase';
 
 const PrismaRatingRepository = new Prisma.PrismaRepositoryDeleteRating();
 

@@ -1,10 +1,10 @@
-import { IAuthentication } from "../repositories/IAuthentication";
-import { User } from "types";
-import { compare } from "bcryptjs";
-import { sign } from "jsonwebtoken";
+import { IAuthentication } from '../repositories/IAuthentication';
+import { User } from 'types';
+import { compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
 
-import { jwtModule } from "../../../utils/config/Auth/auth";
-import { HttpError } from "../../../shared/errors/appError";
+import { jwtModule } from '../../../utils/config/Auth/auth';
+import { HttpError } from '../../../shared/errors/appError';
 
 export class AuthenticationCase {
   constructor(private authenticationRepository: IAuthentication) {}
@@ -15,11 +15,11 @@ export class AuthenticationCase {
     const searchUser = await this.authenticationRepository.findEmail(email);
 
     if (!searchUser) {
-      throw new HttpError("User not exist", 404);
+      throw new HttpError('User not exist', 404);
     }
 
     if (!(await compare(password, searchUser.password))) {
-      throw new HttpError("Invalid password", 401);
+      throw new HttpError('Invalid password', 401);
     }
 
     const user: User = {

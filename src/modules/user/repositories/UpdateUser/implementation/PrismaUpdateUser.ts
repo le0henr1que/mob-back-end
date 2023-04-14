@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-import { User } from "types";
-import { IUpdateUser } from "../IUpdateUser";
+import { PrismaClient } from '@prisma/client';
+import { User } from 'types';
+import { IUpdateUser } from '../IUpdateUser';
 
 export class PrismaUpdateUser implements IUpdateUser {
   async executeUpdateUser(dataUser: User): Promise<User> {

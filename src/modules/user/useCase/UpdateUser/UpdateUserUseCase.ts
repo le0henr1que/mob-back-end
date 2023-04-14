@@ -1,5 +1,5 @@
-import { User } from "types";
-import { IUpdateUser } from "../../repositories/UpdateUser/IUpdateUser";
+import { User } from 'types';
+import { IUpdateUser } from '../../repositories/UpdateUser/IUpdateUser';
 
 export class UpdateUserUseCase {
   constructor(private updateUserRepository: IUpdateUser) {}

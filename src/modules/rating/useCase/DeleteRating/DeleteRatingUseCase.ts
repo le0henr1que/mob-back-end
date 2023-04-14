@@ -1,4 +1,4 @@
-import { IDeleteRating } from "../../repositories/DeleteRating/IDeleteRating";
+import { IDeleteRating } from '../../repositories/DeleteRating/IDeleteRating';
 
 export class DeleteRatingUseCase {
   constructor(private ratingRepositoryDelete: IDeleteRating) {}

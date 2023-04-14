@@ -1,6 +1,6 @@
-import { Rating } from "types";
-import { UpdateRating } from "../IUpdateRating";
-import { PrismaClient } from "@prisma/client";
+import { Rating } from 'types';
+import { UpdateRating } from '../IUpdateRating';
+import { PrismaClient } from '@prisma/client';
 
 export class PrismaRepositoryUpdateRating implements UpdateRating {
   async executeUpdateRating(dataRatingUpdate: Rating): Promise<Rating> {

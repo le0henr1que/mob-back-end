@@ -1,6 +1,6 @@
-import * as Prisma from "../../repositories/UpdateLocal/implementation/PrismaUpdateLocal";
-import { UpdateLocalController } from "./UpdateLocalController";
-import { UpdateLocalUseCase } from "./UpdateLocalUseCase";
+import * as Prisma from '../../repositories/UpdateLocal/implementation/PrismaUpdateLocal';
+import { UpdateLocalController } from './UpdateLocalController';
+import { UpdateLocalUseCase } from './UpdateLocalUseCase';
 
 const PrismaLocalRepository = new Prisma.PrismaRepositoryUpdateLocal();
 

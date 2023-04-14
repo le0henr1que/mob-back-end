@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-import { User } from "types";
-import { ICreateUser } from "../ICreateUser";
+import { PrismaClient } from '@prisma/client';
+import { User } from 'types';
+import { ICreateUser } from '../ICreateUser';
 
 export class PrismaCreateUser implements ICreateUser {
   async executeCreateUser(dataUser: User): Promise<User> {

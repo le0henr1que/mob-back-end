@@ -1,6 +1,6 @@
-import { User } from "types";
-import { ICreateUser } from "../../repositories/CreateUser/ICreateUser";
-import { hash } from "bcryptjs";
+import { User } from 'types';
+import { ICreateUser } from '../../repositories/CreateUser/ICreateUser';
+import { hash } from 'bcryptjs';
 
 export class CreateUserUseCase {
   constructor(private createUserRepository: ICreateUser) {}

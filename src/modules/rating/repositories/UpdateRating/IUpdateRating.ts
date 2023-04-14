@@ -1,4 +1,4 @@
-import { Rating } from "types";
+import { Rating } from 'types';
 
 export interface UpdateRating {
   executeUpdateRating(dataRatingUpdate: Rating): Promise<Rating>;

@@ -1,6 +1,6 @@
-import { Rating } from "types";
-import { IDeleteRating } from "../IDeleteRating";
-import { PrismaClient } from "@prisma/client";
+import { Rating } from 'types';
+import { IDeleteRating } from '../IDeleteRating';
+import { PrismaClient } from '@prisma/client';
 
 export class PrismaRepositoryDeleteRating implements IDeleteRating {
   async executeDelete(ratingId: string): Promise<void> {

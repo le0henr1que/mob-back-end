@@ -1,5 +1,5 @@
-import { Response, Request } from "express";
-import { ListByIdLocalUseCase } from "./ListByIdLocalUseCase";
+import { Response, Request } from 'express';
+import { ListByIdLocalUseCase } from './ListByIdLocalUseCase';
 
 export class ListByIdLocalController {
   constructor(private listByIdLocalUseCase: ListByIdLocalUseCase) {}

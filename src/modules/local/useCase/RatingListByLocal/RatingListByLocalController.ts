@@ -1,5 +1,5 @@
-import { Response, Request } from "express";
-import { RatingListByLocalUseCase } from "./RatingListByLocalUseCase";
+import { Response, Request } from 'express';
+import { RatingListByLocalUseCase } from './RatingListByLocalUseCase';
 
 export class RatingListByLocalController {
   constructor(private ratingListByLocalUseCase: RatingListByLocalUseCase) {}

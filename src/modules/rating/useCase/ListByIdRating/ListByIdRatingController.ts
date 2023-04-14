@@ -1,5 +1,5 @@
-import { Response, Request } from "express";
-import { ListByIdRatingRatingUseCase } from "./ListByIdRatingUseCase";
+import { Response, Request } from 'express';
+import { ListByIdRatingRatingUseCase } from './ListByIdRatingUseCase';
 
 export class ListByIdRatingController {
   constructor(private listByIdRatingUseCase: ListByIdRatingRatingUseCase) {}

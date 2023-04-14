@@ -1,5 +1,5 @@
-import { Response, Request } from "express";
-import { GetLocalUseCase } from "./GetLocalUseCase";
+import { Response, Request } from 'express';
+import { GetLocalUseCase } from './GetLocalUseCase';
 
 export class GetLocalController {
   constructor(private getLocalUseCase: GetLocalUseCase) {}

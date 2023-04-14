@@ -1,6 +1,6 @@
-import { Response, Request } from "express";
-import { HttpError } from "../../../../shared/errors/appError";
-import { DeleteRatingUseCase } from "./DeleteRatingUseCase";
+import { Response, Request } from 'express';
+import { HttpError } from '../../../../shared/errors/appError';
+import { DeleteRatingUseCase } from './DeleteRatingUseCase';
 
 export class DeleteRatingController {
   constructor(private deleteRatingUseCase: DeleteRatingUseCase) {}

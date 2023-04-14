@@ -1,6 +1,6 @@
-import { Rating } from "types";
-import { ICreateRating } from "../ICreateRating";
-import { PrismaClient } from "@prisma/client";
+import { Rating } from 'types';
+import { ICreateRating } from '../ICreateRating';
+import { PrismaClient } from '@prisma/client';
 
 export class PrismaRepositoryCreateRating implements ICreateRating {
   async executeCreate(dataRating: Rating): Promise<Rating> {

@@ -1,5 +1,5 @@
-import { Local } from "types";
-import { ICreateLocal } from "../../repositories/CreateLocal/ICreateLocal";
+import { Local } from 'types';
+import { ICreateLocal } from '../../repositories/CreateLocal/ICreateLocal';
 
 export class CreateLocalUseCase {
   constructor(private localRepositoryCreate: ICreateLocal) {}

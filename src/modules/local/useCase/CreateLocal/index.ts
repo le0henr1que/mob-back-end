@@ -1,6 +1,6 @@
-import * as Prisma from "../../repositories/CreateLocal/implementation/PrismaCreatelocal";
-import { CreateLocalController } from "./CreateLocalController";
-import { CreateLocalUseCase } from "./CreateLocalUseCase";
+import * as Prisma from '../../repositories/CreateLocal/implementation/PrismaCreatelocal';
+import { CreateLocalController } from './CreateLocalController';
+import { CreateLocalUseCase } from './CreateLocalUseCase';
 
 const PrismaLocalRepository = new Prisma.PrismaRepositoryCreateLocal();
 

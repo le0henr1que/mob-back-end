@@ -1,5 +1,5 @@
-import { UpdateRating } from "../../repositories/UpdateRating/IUpdateRating";
-import { Rating } from "types";
+import { UpdateRating } from '../../repositories/UpdateRating/IUpdateRating';
+import { Rating } from 'types';
 
 export class UpdateRatingUseCase {
   constructor(private ratingRepositoryUpdateAll: UpdateRating) {}

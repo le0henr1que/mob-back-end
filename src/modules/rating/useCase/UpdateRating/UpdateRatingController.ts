@@ -1,7 +1,7 @@
-import { Response, Request } from "express";
-import { UpdateRatingUseCase } from "./UpdateRatingUseCase";
-import { Rating } from "types";
-import { HttpError } from "../../../../shared/errors/appError";
+import { Response, Request } from 'express';
+import { UpdateRatingUseCase } from './UpdateRatingUseCase';
+import { Rating } from 'types';
+import { HttpError } from '../../../../shared/errors/appError';
 
 export class UpdateRatingController {
   constructor(private updateRatingUseCase: UpdateRatingUseCase) {}
@@ -11,22 +11,13 @@ export class UpdateRatingController {
     const { id } = request.params;
 
     if (!userId) {
-      throw new HttpError(
-        "Propriedade 'userId' não encontrada no corpo da requisição",
-        404
-      );
+      throw new HttpError("Propriedade 'userId' não encontrada no corpo da requisição", 404);
     }
     if (!localId) {
-      throw new HttpError(
-        "Propriedade 'localId' não encontrada no corpo da requisição",
-        404
-      );
+      throw new HttpError("Propriedade 'localId' não encontrada no corpo da requisição", 404);
     }
     if (!score) {
-      throw new HttpError(
-        "Propriedade 'score' não encontrada no corpo da requisição",
-        404
-      );
+      throw new HttpError("Propriedade 'score' não encontrada no corpo da requisição", 404);
     }
 
     const dataRating: Rating = {

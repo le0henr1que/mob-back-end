@@ -1,4 +1,4 @@
-import { Handler, NextFunction, Request, Response } from "express";
+import { Handler, NextFunction, Request, Response } from 'express';
 
 export class HttpError extends Error {
   public readonly message: string;
@@ -17,8 +17,6 @@ export class HttpError extends Error {
 
 export const resolver = (handlerFn: Handler) => {
   return (request: Request, response: Response, next: NextFunction) => {
-    return Promise.resolve(handlerFn(request, response, next)).catch((e) =>
-      next(e)
-    );
+    return Promise.resolve(handlerFn(request, response, next)).catch(e => next(e));
   };
 };

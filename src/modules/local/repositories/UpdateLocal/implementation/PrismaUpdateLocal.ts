@@ -1,6 +1,6 @@
-import { Local, Rating } from "types";
-import { UpdateLocal } from "../IUpdateLocal";
-import { PrismaClient } from "@prisma/client";
+import { Local, Rating } from 'types';
+import { UpdateLocal } from '../IUpdateLocal';
+import { PrismaClient } from '@prisma/client';
 
 export class PrismaRepositoryUpdateLocal implements UpdateLocal {
   async executeUpdate(dataLocalUpdate: Local): Promise<Local> {

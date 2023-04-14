@@ -1,7 +1,7 @@
-import { Response, Request } from "express";
-import { UpdateLocalUseCase } from "./UpdateLocalUseCase";
-import { Local } from "types";
-import { HttpError } from "../../../../shared/errors/appError";
+import { Response, Request } from 'express';
+import { UpdateLocalUseCase } from './UpdateLocalUseCase';
+import { Local } from 'types';
+import { HttpError } from '../../../../shared/errors/appError';
 
 export class UpdateLocalController {
   constructor(private updateLocalUseCase: UpdateLocalUseCase) {}
@@ -11,10 +11,7 @@ export class UpdateLocalController {
     const { name } = request.body;
 
     if (!name) {
-      throw new HttpError(
-        "Propriedade 'name' não encontrada no corpo da requisição",
-        404
-      );
+      throw new HttpError("Propriedade 'name' não encontrada no corpo da requisição", 404);
     }
 
     const dataLocal: Local = {

@@ -1,5 +1,5 @@
-import { Response, Request } from "express";
-import { GetUniqueUserUseCase } from "./GetUniqueUserUseCase";
+import { Response, Request } from 'express';
+import { GetUniqueUserUseCase } from './GetUniqueUserUseCase';
 
 export class GetUniqueUserController {
   constructor(private getUniqueUserUseCase: GetUniqueUserUseCase) {}

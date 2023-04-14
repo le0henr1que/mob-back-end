@@ -1,15 +1,15 @@
-import { authController } from "./useCae/index";
+import { authController } from './useCae/index';
 
-import { Router } from "express";
-import { resolver } from "../../shared/errors/appError";
+import { Router } from 'express';
+import { resolver } from '../../shared/errors/appError';
 
 const authenticationRoute = Router();
 
 authenticationRoute.post(
-  "/login",
+  '/login',
   resolver((request, response) => {
     return authController.handle(request, response);
-  })
+  }),
 );
 
 export { authenticationRoute };

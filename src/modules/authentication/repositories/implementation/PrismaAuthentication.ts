@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-import { User } from "types";
-import { IAuthentication } from "../IAuthentication";
+import { PrismaClient } from '@prisma/client';
+import { User } from 'types';
+import { IAuthentication } from '../IAuthentication';
 
 export class PrismaAuthentication implements IAuthentication {
   async findEmail(email: string): Promise<User> {

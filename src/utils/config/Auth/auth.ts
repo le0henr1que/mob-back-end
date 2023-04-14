@@ -1,4 +1,4 @@
-import { ModuleJWT } from "types";
+import { ModuleJWT } from 'types';
 
 const jwtSecret = process.env.JWT_SECRET;
 const jwtExpireIn = process.env.JWT_EXPIRE;

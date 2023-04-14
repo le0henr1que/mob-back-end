@@ -1,7 +1,7 @@
-import { Response, Request } from "express";
-import { HttpError } from "../../../../shared/errors/appError";
-import { User } from "types";
-import { UpdateUserUseCase } from "./UpdateUserUseCase";
+import { Response, Request } from 'express';
+import { HttpError } from '../../../../shared/errors/appError';
+import { User } from 'types';
+import { UpdateUserUseCase } from './UpdateUserUseCase';
 
 export class UpdateUserController {
   constructor(private updateUserUseCase: UpdateUserUseCase) {}

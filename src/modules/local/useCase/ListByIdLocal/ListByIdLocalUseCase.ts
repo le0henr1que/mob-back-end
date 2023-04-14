@@ -1,4 +1,4 @@
-import { ListByIdLocal } from "../../repositories/ListByIdLocal/IListByIdLocal";
+import { ListByIdLocal } from '../../repositories/ListByIdLocal/IListByIdLocal';
 
 export class ListByIdLocalUseCase {
   constructor(private LocalRepositoryListByIdLocal: ListByIdLocal) {}
