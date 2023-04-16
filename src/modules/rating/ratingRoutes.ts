@@ -28,6 +28,7 @@ routerRating.post(
     return createRatingController.handle(request, response);
   }),
 );
+
 routerRating.put(
   '/ratings/:id',
   authMiddleware,

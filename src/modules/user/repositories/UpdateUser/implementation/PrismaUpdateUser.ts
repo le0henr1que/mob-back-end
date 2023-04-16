@@ -18,4 +18,13 @@ export class PrismaUpdateUser implements IUpdateUser {
       },
     });
   }
+  async executeVerifyId(id: string): Promise<User[]> {
+    const prisma = new PrismaClient();
+
+    return await prisma.user.findMany({
+      where: {
+        id: id,
+      },
+    });
+  }
 }

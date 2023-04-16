@@ -7,7 +7,7 @@ export class UpdateRatingController {
   constructor(private updateRatingUseCase: UpdateRatingUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const { userId, localId, score } = request.body;
+    const { userId, localId, rating } = request.body;
     const { id } = request.params;
 
     if (!userId) {
@@ -16,7 +16,7 @@ export class UpdateRatingController {
     if (!localId) {
       throw new HttpError("Propriedade 'localId' não encontrada no corpo da requisição", 404);
     }
-    if (!score) {
+    if (!rating) {
       throw new HttpError("Propriedade 'score' não encontrada no corpo da requisição", 404);
     }
 
@@ -24,10 +24,10 @@ export class UpdateRatingController {
       id,
       userId,
       localId,
-      score,
+      rating,
     };
 
-    const rating = await this.updateRatingUseCase.execute(dataRating);
-    return response.status(200).json({ error: false, rating });
+    const ratingContent = await this.updateRatingUseCase.execute(dataRating);
+    return response.status(200).json({ error: false, ratingContent });
   }
 }

@@ -9,7 +9,6 @@ import { errorMiddleware } from './middlewares/error/errorMiddleware';
 import { corsOptions } from './utils/config/Server/cors';
 import swaggerUI from 'swagger-ui-express';
 import swaggerDocument from './utils/config/swagger.json';
-
 const app = express();
 
 app.use(express.json());

@@ -16,6 +16,7 @@ export class UpdateUserController {
       email,
       password,
     };
+
     const user = await this.updateUserUseCase.execute(dataUser);
     return response.status(200).json({ error: false, user });
   }

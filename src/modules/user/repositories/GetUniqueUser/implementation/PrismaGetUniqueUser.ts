@@ -10,6 +10,13 @@ export class PrismaGetUniqueUser implements IGetUniqueUser {
       where: {
         id: userId,
       },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        accepted_terms: true,
+        password: false,
+      },
     });
   }
 }

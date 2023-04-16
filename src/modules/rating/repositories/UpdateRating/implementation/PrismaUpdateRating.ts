@@ -6,7 +6,7 @@ export class PrismaRepositoryUpdateRating implements UpdateRating {
   async executeUpdateRating(dataRatingUpdate: Rating): Promise<Rating> {
     const prisma = new PrismaClient();
 
-    const { id, userId, localId, score } = dataRatingUpdate;
+    const { id, userId, localId, rating } = dataRatingUpdate;
 
     return await prisma.rating.update({
       where: {
@@ -15,7 +15,7 @@ export class PrismaRepositoryUpdateRating implements UpdateRating {
       data: {
         userId: userId,
         localId: localId,
-        score: score,
+        rating: rating,
       },
     });
   }

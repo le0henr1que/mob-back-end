@@ -7,4 +7,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Running at http://localhost:${PORT}`);
   console.log(`Documentation at http://localhost:${PORT}/api/docs`);
+  // console.log(`The connection URL is ${process.env.DATABASE_URL}`)
 });
