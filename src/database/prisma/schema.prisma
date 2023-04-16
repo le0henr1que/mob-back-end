@@ -25,20 +25,22 @@ model Rating {
   id              String   @id @default(uuid())
   userId          String
   localId          String
+  // commentId String
   rating            Int
   createdAt       DateTime @default(now())
   comment       Comment[]
   local Local @relation(fields: [localId], references: [id])
   user User @relation(fields: [userId], references: [id])
+  
 }
 
 model Comment {
   id              String   @id @default(uuid())
   comment_text String?
-  commentId String?
+  ratingId String?
   title String
   createdAt       DateTime @default(now())
-  rating Rating? @relation(fields: [commentId], references: [id])
+  rating Rating? @relation(fields: [ratingId], references: [id])
 
 }
 
