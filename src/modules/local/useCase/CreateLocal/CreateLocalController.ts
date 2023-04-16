@@ -8,7 +8,7 @@ export class CreateLocalController {
 
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, category, address } = request.body;
-    const { cep, complement, number, logradouro, bairro, city, state } = address
+    const { cep, complement, number, logradouro, bairro, city, state } = address;
     if (!cep) {
       throw new HttpError("Propriedade 'cep' não encontrada no corpo da requisição", 404);
     }
@@ -31,11 +31,11 @@ export class CreateLocalController {
     const dataLocal: Local = {
       name,
       category,
-      address
+      address,
     };
 
     const local = await this.createLocalUseCase.execute(dataLocal);
-    
+
     return response.status(201).json({ error: false, local });
   }
 }

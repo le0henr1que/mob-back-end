@@ -15,7 +15,7 @@ function authMiddleware(request: Request, response: Response, next: NextFunction
 
   try {
     const decoded = verify(onlyToken, secret);
-    next(); 
+    next();
   } catch (error) {
     if (error instanceof TokenExpiredError) {
       throw new HttpError('Token expired', 403);
@@ -23,9 +23,6 @@ function authMiddleware(request: Request, response: Response, next: NextFunction
       throw new HttpError('Invalid token', 401);
     }
   }
-
- 
-  
 }
 
 export default authMiddleware;

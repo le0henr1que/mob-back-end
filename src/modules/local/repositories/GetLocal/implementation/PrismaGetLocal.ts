@@ -19,7 +19,7 @@ export class PrismaRepositoryGetLocal implements IGetLocal {
             bairro: true,
             city: true,
             state: true,
-          }
+          },
         },
         _count: {
           select: {
@@ -29,8 +29,6 @@ export class PrismaRepositoryGetLocal implements IGetLocal {
       },
     });
 
-
     return local;
-
   }
 }

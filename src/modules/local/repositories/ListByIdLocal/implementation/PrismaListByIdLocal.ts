@@ -23,7 +23,7 @@ export class PrismaRepositoryListByIdLocal implements ListByIdLocal {
             bairro: true,
             city: true,
             state: true,
-          }
+          },
         },
         _count: {
           select: {

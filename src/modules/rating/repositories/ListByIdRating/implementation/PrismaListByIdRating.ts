@@ -10,23 +10,22 @@ export class PrismaRepositoryListByIdRating implements ListByIdRating {
       where: {
         id: ratingId,
       },
-       select:{
-        id:true,
-        userId:false, 
-        rating:true,
-        user:
-        {
-          select:{
-              id:true,
-            password:false,
-              name:true, 
-              email:true,
-              accepted_terms:false
-          }
+      select: {
+        id: true,
+        userId: false,
+        rating: true,
+        user: {
+          select: {
+            id: true,
+            password: false,
+            name: true,
+            email: true,
+            accepted_terms: false,
+          },
         },
-        localId:false,
-        comment:true
-       }
+        localId: false,
+        comment: true,
+      },
     });
   }
 }
