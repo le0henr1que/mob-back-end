@@ -9,7 +9,7 @@ export class PrismaRepositoryCreateLocal implements ICreateLocal {
     return await prisma.local.create({
       data: {
         name: name,
-        category:category
+        category: category,
         // rating: rating
       },
     });

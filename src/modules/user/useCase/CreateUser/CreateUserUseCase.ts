@@ -11,12 +11,11 @@ export class CreateUserUseCase {
 
     dataUser.password = await hash(password, 8);
 
-    const findEmail = await this.createUserRepository.executeVerifyEmail(email)
+    const findEmail = await this.createUserRepository.executeVerifyEmail(email);
 
     if (findEmail.length >= 1) {
-      throw new HttpError("Usuário já existente", 400);
+      throw new HttpError('Usuário já existente', 400);
     }
-
 
     return await this.createUserRepository.executeCreateUser(dataUser);
   }

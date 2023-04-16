@@ -12,18 +12,17 @@ export class PrismaCreateUser implements ICreateUser {
         name: name,
         email: email,
         password: password,
-        accepted_terms: accepted_terms 
+        accepted_terms: accepted_terms,
       },
     });
   }
-  async executeVerifyEmail(email:string): Promise<User[]>{
+  async executeVerifyEmail(email: string): Promise<User[]> {
     const prisma = new PrismaClient();
 
     return await prisma.user.findMany({
-      where:{
-        email:email
-      }
-    })
-
+      where: {
+        email: email,
+      },
+    });
   }
 }

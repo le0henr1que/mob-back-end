@@ -13,12 +13,11 @@ export class CreateUserController {
       throw new HttpError("Propriedade 'name' não encontrada no corpo da requisição", 404);
     }
 
-
     const userArray: User = {
       name,
       email,
       password,
-      accepted_terms
+      accepted_terms,
     };
 
     const user = await this.createUserUseCase.execute(userArray);

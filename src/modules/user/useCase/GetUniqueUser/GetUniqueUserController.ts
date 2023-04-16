@@ -7,8 +7,8 @@ export class GetUniqueUserController {
 
   async handle(request: Request, response: Response): Promise<Response> {
     const user = await this.getUniqueUserUseCase.execute(request.params.id);
-    if(!user){
-      throw new HttpError("Usuário não existente", 404);
+    if (!user) {
+      throw new HttpError('Usuário não existente', 404);
     }
     return response.status(200).json({ error: false, user });
   }

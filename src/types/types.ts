@@ -4,7 +4,7 @@ export interface User {
   email: string;
   password?: string;
   token?: string;
-  accepted_terms?:boolean;
+  accepted_terms?: boolean;
 }
 export interface Rating {
   id?: string;
@@ -17,7 +17,7 @@ export interface Rating {
 export interface Local {
   id?: string;
   name: string;
-  category?:string;
+  category?: string;
   rating?: string;
 }
 export interface ModuleJWT extends Document {

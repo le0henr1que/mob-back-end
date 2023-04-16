@@ -9,14 +9,14 @@ export class PrismaGetUniqueUser implements IGetUniqueUser {
     return await prisma.user.findUnique({
       where: {
         id: userId,
-      }, 
-      select:{
-        id:true,
-        name:true,
-        email:true,
-        accepted_terms:true,
-        password:false
-      }
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        accepted_terms: true,
+        password: false,
+      },
     });
   }
 }

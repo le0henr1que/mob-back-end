@@ -15,7 +15,7 @@ export class CreateLocalController {
 
     const dataLocal: Local = {
       name,
-      category
+      category,
     };
 
     const local = await this.createLocalUseCase.execute(dataLocal);
