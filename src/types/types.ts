@@ -4,18 +4,20 @@ export interface User {
   email: string;
   password?: string;
   token?: string;
+  accepted_terms?:boolean;
 }
 export interface Rating {
   id?: string;
   userId?: string;
   localId?: string;
-  score: number;
+  rating: number;
   createdAt?: Date;
 }
 
 export interface Local {
   id?: string;
   name: string;
+  category?:string;
   rating?: string;
 }
 export interface ModuleJWT extends Document {

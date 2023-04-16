@@ -16,6 +16,7 @@ model User {
   name     String
   email String
   password String
+  accepted_terms Boolean
   rating       Rating[]
 }
 
@@ -24,14 +25,40 @@ model Rating {
   id              String   @id @default(uuid())
   userId          String
   localId          String
-  score            Int
+  rating            Int
   createdAt       DateTime @default(now())
+  comment       Comment[]
   local Local @relation(fields: [localId], references: [id])
   user User @relation(fields: [userId], references: [id])
+}
+
+model Comment {
+  id              String   @id @default(uuid())
+  comment_text String?
+  commentId String?
+  title String
+  createdAt       DateTime @default(now())
+  rating Rating? @relation(fields: [commentId], references: [id])
+
 }
 
 model Local {
   id String @id @default(uuid())
   name String
+  category String
+  addressId   String?
+  address     Address? @relation(fields: [addressId], references: [id])
   rating Rating[]
+}
+
+model Address {
+  id String @id @default(uuid())
+  cep String
+  complement String?
+  number String
+  logradouro String
+  bairro String
+  city String
+  state String
+  local  Local[]
 }

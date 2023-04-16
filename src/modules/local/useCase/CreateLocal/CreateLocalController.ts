@@ -7,7 +7,7 @@ export class CreateLocalController {
   constructor(private createLocalUseCase: CreateLocalUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name } = request.body;
+    const { name, category } = request.body;
 
     if (!name) {
       throw new HttpError("Propriedade 'name' não encontrada no corpo da requisição", 404);
@@ -15,6 +15,7 @@ export class CreateLocalController {
 
     const dataLocal: Local = {
       name,
+      category
     };
 
     const local = await this.createLocalUseCase.execute(dataLocal);
