@@ -146,6 +146,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/express-brute@^1.0.1":
+  "integrity" "sha512-rG4YWh+tIDvwupiPwuLaz0fEpFE7ShLOX59ZdejMQ4jYlshmxtN5KjB7VFGsggk4TmeVnoHF7QrwLwan2wj8cg=="
+  "resolved" "https://registry.npmjs.org/@types/express-brute/-/express-brute-1.0.1.tgz"
+  "version" "1.0.1"
+  dependencies:
+    "@types/express" "*"
+
 "@types/express-serve-static-core@^4.17.33":
   "integrity" "sha512-TPBqmR/HRYI3eC2E5hmiivIzv+bidAfXofM+sbonAGvyDhySGw9/PQZFt2BLOrjUUR++4eJVpx6KnLQK1Fk9tA=="
   "resolved" "https://registry.npmjs.org/@types/express-serve-static-core/-/express-serve-static-core-4.17.33.tgz"
@@ -849,7 +856,15 @@
   "resolved" "https://registry.npmjs.org/express-async-handler/-/express-async-handler-1.2.0.tgz"
   "version" "1.2.0"
 
-"express@^4.18.2", "express@>=4.0.0":
+"express-brute@^1.0.1":
+  "integrity" "sha512-ieZmwox3oIZdQCVjvvnwQvrKQumWdb/JjmC9mWplF42AuHCBXr6Yk/I+nLTRQx+9F+2aapOW9kYLwA6xIlwA9g=="
+  "resolved" "https://registry.npmjs.org/express-brute/-/express-brute-1.0.1.tgz"
+  "version" "1.0.1"
+  dependencies:
+    "long-timeout" "~0.1.1"
+    "underscore" "~1.8.3"
+
+"express@^4.18.2", "express@>=4.0.0", "express@4.x":
   "integrity" "sha512-5/PsL6iGPdfQ/lKM1UuielYgv3BUoJfz1aUwU9vHZ+J7gyvwdQXFEBIEIaxeGf0GIcreATNyBExtalisDbuMqQ=="
   "resolved" "https://registry.npmjs.org/express/-/express-4.18.2.tgz"
   "version" "4.18.2"
@@ -1261,6 +1276,11 @@
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
+
+"long-timeout@~0.1.1":
+  "integrity" "sha512-BFRuQUqc7x2NWxfJBCyUrN8iYUYznzL9JROmRz1gZ6KlOIgmoD+njPVbb+VNn2nGMKggMsK79iUNErillsrx7w=="
+  "resolved" "https://registry.npmjs.org/long-timeout/-/long-timeout-0.1.1.tgz"
+  "version" "0.1.1"
 
 "lru-cache@^4.0.1":
   "integrity" "sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g=="
@@ -1928,6 +1948,11 @@
   "integrity" "sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz"
   "version" "4.9.5"
+
+"underscore@~1.8.3":
+  "integrity" "sha512-5WsVTFcH1ut/kkhAaHf4PVgI8c7++GiVcpCGxPouI6ZVjsqPnSDf8h/8HtVqc0t4fzRXwnMK70EcZeAs3PIddg=="
+  "resolved" "https://registry.npmjs.org/underscore/-/underscore-1.8.3.tgz"
+  "version" "1.8.3"
 
 "unpipe@~1.0.0", "unpipe@1.0.0":
   "integrity" "sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ=="

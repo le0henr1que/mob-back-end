@@ -9,6 +9,7 @@ export class PrismaRepositoryGetLocal implements IGetLocal {
       select: {
         id: true,
         name: true,
+        category: true,
         address: {
           select: {
             id: true,

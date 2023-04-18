@@ -5,20 +5,18 @@ export class CreateRatingUseCase {
   constructor(private ratingRepositoryCreate: ICreateRating) {}
 
   async execute(dataRating: Rating) {
-    const { title, comment_text} = dataRating.comment
-      
+    const { title, comment_text } = dataRating.comment;
+
     const rating = await this.ratingRepositoryCreate.executeCreate(dataRating);
 
-    const comment:Comment = {
+    const commentContent: Comment = {
       comment_text: comment_text,
       ratingId: rating.id,
-      title:title,
-    }
+      title: title,
+    };
 
-    const commentRating = await this.ratingRepositoryCreate.executeCreateComment(comment)
+    const Comment = await this.ratingRepositoryCreate.executeCreateComment(commentContent);
 
- 
-    return commentRating
-
+    return { ...rating, Comment };
   }
 }
