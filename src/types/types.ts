@@ -10,10 +10,10 @@ export interface User {
 export interface Comment {
   id?: string;
   comment_text?: string;
-  commentId?: string;
+  ratingId?: string;
   title?: string;
-  createdAt?: string;
-  rating?: string[];
+  // createdAt?: string;
+  // rating?: string[];
 }
 
 export interface Rating {
