@@ -1,4 +1,4 @@
-import { authController } from './useCae/index';
+import { authController } from './useCae/Login/index';
 
 import { Router } from 'express';
 import { resolver } from '../../shared/errors/appError';

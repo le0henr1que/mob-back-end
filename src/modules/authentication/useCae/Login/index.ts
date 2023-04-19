@@ -1,4 +1,4 @@
-import * as Prisma from '../repositories/implementation/PrismaAuthentication';
+import * as Prisma from '../../repositories/Login/implementation/PrismaAuthentication';
 import { authenticationController } from './AuthenticationController';
 import { AuthenticationCase } from './AuthenticationUseCase';
 

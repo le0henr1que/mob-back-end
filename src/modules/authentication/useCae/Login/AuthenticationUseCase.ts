@@ -1,10 +1,10 @@
-import { IAuthentication } from '../repositories/IAuthentication';
+import { IAuthentication } from '../../repositories/Login/IAuthentication';
 import { User } from 'types';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
-import { jwtModule } from '../../../utils/config/Auth/auth';
-import { HttpError } from '../../../shared/errors/appError';
+import { jwtModule } from '../../../../utils/config/Auth/auth';
+import { HttpError } from '../../../../shared/errors/appError';
 
 export class AuthenticationCase {
   constructor(private authenticationRepository: IAuthentication) {}

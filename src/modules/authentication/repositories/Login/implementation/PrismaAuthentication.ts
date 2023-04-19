@@ -11,7 +11,6 @@ export class PrismaAuthentication implements IAuthentication {
         email: email,
       },
     });
-    console.log(userExist);
     return userExist;
   }
 }
