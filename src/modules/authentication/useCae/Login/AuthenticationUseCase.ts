@@ -15,7 +15,7 @@ export class AuthenticationCase {
     const searchUser = await this.authenticationRepository.findEmail(email);
 
     if (!searchUser) {
-      throw new HttpError('User not exist', 404);
+      throw new HttpError('Usuário não encontrado', 404);
     }
 
     if (!(await compare(password, searchUser.password))) {
