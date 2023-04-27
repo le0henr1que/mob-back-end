@@ -15,11 +15,17 @@ export class AuthenticationCase {
     const searchUser = await this.authenticationRepository.findEmail(email);
 
     if (!searchUser) {
-      throw new HttpError('Usuário não encontrado', 404);
+      throw new HttpError(
+        'Ooops! Parece que suas credenciais de login estão incorretas. Por favor, verifique se digitou corretamente ou redefina sua senha se tiver esquecido.',
+        404,
+      );
     }
 
     if (!(await compare(password, searchUser.password))) {
-      throw new HttpError('Invalid password', 401);
+      throw new HttpError(
+        'Ooops! Parece que suas credenciais de login estão incorretas. Por favor, verifique se digitou corretamente ou redefina sua senha se tiver esquecido.',
+        401,
+      );
     }
 
     const user: User = {
