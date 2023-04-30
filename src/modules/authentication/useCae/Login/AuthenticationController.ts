@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { User } from 'types';
 import { AuthenticationCase } from './AuthenticationUseCase';
 
-export class authenticationController {
+export class AuthenticationController {
   constructor(private authenticationUseCase: AuthenticationCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {

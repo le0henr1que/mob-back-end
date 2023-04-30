@@ -1,4 +1,5 @@
 import { authController } from './useCae/Login/index';
+import { googleLoginController } from './useCae/Google-Login/index';
 
 import { Router } from 'express';
 import { resolver } from '../../shared/errors/appError';
@@ -11,6 +12,13 @@ authenticationRoute.post(
   bruteforce,
   resolver((request, response) => {
     return authController.handle(request, response);
+  }),
+);
+
+authenticationRoute.post(
+  '/login/google',
+  resolver((request, response) => {
+    return googleLoginController.handle(request, response);
   }),
 );
 

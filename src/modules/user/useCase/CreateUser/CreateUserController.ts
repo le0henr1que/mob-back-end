@@ -7,7 +7,7 @@ export class CreateUserController {
   constructor(private createUserUseCase: CreateUserUseCase) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name, email, password, accepted_terms } = request.body;
+    const { name, email, password, accepted_terms, picture } = request.body;
 
     if (!name) {
       throw new HttpError("Propriedade 'name' não encontrada no corpo da requisição", 404);
@@ -18,6 +18,7 @@ export class CreateUserController {
       email,
       password,
       accepted_terms,
+      picture,
     };
 
     const user = await this.createUserUseCase.execute(userArray);
