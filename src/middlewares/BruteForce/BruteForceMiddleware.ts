@@ -10,10 +10,10 @@ const failCallback = function (req: any, res: any, next: any, nextValidRequestDa
 };
 
 var bruteforce = new ExpressBrute(store, {
-  freeRetries: 5,
-  minWait: 1 * 60 * 1000,
-  maxWait: 5 * 60 * 1000,
-  failCallback: failCallback,
+  // freeRetries: 5,
+  // minWait: 1 * 60 * 1000,
+  // maxWait: 5 * 60 * 1000,
+  // failCallback: failCallback,
   // handleStoreError: handleStoreError
 });
 
