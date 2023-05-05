@@ -14,7 +14,7 @@ datasource db {
 model User {
   id        String @id @default(uuid())
   name     String
-  email String
+  email String @unique
   picture String?
   password String
   accepted_terms Boolean
@@ -64,4 +64,22 @@ model Address {
   city String
   state String
   local  Local[]
+}
+
+
+model Blacklist {
+  id String @id @default(uuid())
+  token String
+  exp DateTime
+}
+
+model PasswordResetRequest {
+
+  id String @id @default(uuid())
+  token String
+  created_at DateTime
+  updated_at DateTime
+  status String @default("expirado")
+  // used
+  // expired
 }

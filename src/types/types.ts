@@ -17,6 +17,12 @@ export interface Comment {
   // rating?: string[];
 }
 
+export interface Blacklist {
+  id?: string;
+  token: string;
+  exp: string;
+}
+
 export interface Rating {
   id?: string;
   userId?: string;

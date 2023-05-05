@@ -27,6 +27,7 @@ export class GoogleLoginUseCase {
     };
 
     const googleDataUser = await axios.request(config);
+    console.log(googleDataUser);
 
     const findUser = await this.googleLoginRepository.findUser(googleDataUser.data.email);
 
