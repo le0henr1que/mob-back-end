@@ -20,7 +20,7 @@ export interface Comment {
 export interface Blacklist {
   id?: string;
   token: string;
-  exp: string;
+  exp: Date;
 }
 
 export interface Rating {

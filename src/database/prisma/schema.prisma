@@ -79,7 +79,7 @@ model PasswordResetRequest {
   token String
   created_at DateTime
   updated_at DateTime
-  status String @default("expirado")
+  status String @default("pending")
   // used
   // expired
 }

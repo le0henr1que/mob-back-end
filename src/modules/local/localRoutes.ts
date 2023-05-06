@@ -3,15 +3,16 @@ import { getLocalController } from './useCase/GetLocal/index';
 import { listByIdLocalController } from './useCase/ListByIdLocal/index';
 import { updateLocalController } from './useCase/UpdateLocal/index';
 import { ratingListByLocalController } from './useCase/RatingListByLocal/index';
-import { Router } from 'express';
+import { Router, response } from 'express';
 import { resolver } from '../../shared/errors/appError';
 import authMiddleware from '../../middlewares/authentication/authenticationMiddleware';
-
+import middlewareBlackList from '../../middlewares/Blacklisted/index';
 const routerLocal = Router();
 
 routerLocal.post(
   '/local',
   authMiddleware,
+  middlewareBlackList,
   resolver((request, response) => {
     return createLocalController.handle(request, response);
   }),
