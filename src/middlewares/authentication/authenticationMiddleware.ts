@@ -1,7 +1,7 @@
 import jwt, { TokenExpiredError, verify } from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 import { HttpError } from '../../shared/errors/appError';
-import { jwtModule } from '../../utils/config/Auth/auth';
+import { jwtModule } from '../../config/Auth/auth';
 
 function authMiddleware(request: Request, response: Response, next: NextFunction) {
   const { authorization } = request.headers;

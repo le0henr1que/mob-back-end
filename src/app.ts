@@ -6,9 +6,9 @@ import { authenticationRoute } from './modules/authentication/authenticationRout
 import cors from 'cors';
 
 import { errorMiddleware } from './middlewares/error/errorMiddleware';
-import { corsOptions } from './utils/config/Server/cors';
+import { corsOptions } from './config/Server/cors';
 import swaggerUI from 'swagger-ui-express';
-import swaggerDocument from './utils/config/swagger.json';
+import swaggerDocument from './utils/swagger/swagger.json';
 const app = express();
 
 app.use(express.json());

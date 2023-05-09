@@ -1,7 +1,7 @@
 import { BlacklistUseCase } from './BlacklistUseCase';
 import { Request, Response, NextFunction } from 'express';
 import { HttpError } from '../../../shared/errors/appError';
-import { jwtModule } from '../../../utils/config/Auth/auth';
+import { jwtModule } from '../../../config/Auth/auth';
 import jwt, { TokenExpiredError, verify } from 'jsonwebtoken';
 
 export class BlacklistController {

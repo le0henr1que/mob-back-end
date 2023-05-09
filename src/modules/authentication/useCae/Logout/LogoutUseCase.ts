@@ -3,7 +3,7 @@ import { User } from 'types';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
-import { jwtModule } from '../../../../utils/config/Auth/auth';
+import { jwtModule } from '../../../../config/Auth/auth';
 import { HttpError } from '../../../../shared/errors/appError';
 import { verify } from 'jsonwebtoken';
 
