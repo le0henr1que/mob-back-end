@@ -15,7 +15,7 @@ export class BlacklistController {
     const queryToken = await this.blacklistUseCase.execute(onlyToken);
 
     if (queryToken.length >= 1) {
-      return response.status(403).send({ error: true, message: 'Acesso negado.' });
+      return response.status(403).send({ error: true, message: 'Acesso negado' });
     }
 
     next();
