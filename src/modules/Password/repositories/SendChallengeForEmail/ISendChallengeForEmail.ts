@@ -1,4 +1,6 @@
+import { User } from 'types';
+
 export interface EmailService {
-  sendEmail?(to: string, codeChallenge: string): Promise<void>;
+  getUser(to: string): Promise<User>;
   createCodeChallenge?(to: string, codeChallenge: string): Promise<void>;
 }

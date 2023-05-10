@@ -57,3 +57,13 @@ export interface Local {
   address?: Address;
   addressId?: string;
 }
+export interface PasswordResetRequest {
+  id?: string;
+  token: string;
+  userId: string;
+  codeChallenge?: string;
+  created_at?: Date;
+  updated_at?: Date;
+  user?: User;
+  status?: string;
+}
