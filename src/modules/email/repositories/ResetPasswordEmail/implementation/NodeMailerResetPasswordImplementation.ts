@@ -22,12 +22,19 @@ export class NodemailerEmailService implements ResetPasswordEmailService {
     const html = compiledTemplate(data);
 
     const mailOptions = {
-      from: 'no-reply@mob.com',
+      from: 'mob@mob.com',
       to: email,
       subject: `Mob!`,
       html: html,
     };
 
-    await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions, function (error, response) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(response);
+      }
+      transporter.close();
+    });
   }
 }
