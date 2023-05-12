@@ -1,0 +1,3 @@
+scripts:
+  bd:push: npx prisma db push --y
+  bd:migrate: npx prisma migrate dev --y

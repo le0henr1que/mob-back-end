@@ -5,6 +5,7 @@ import { PrismaClient } from '@prisma/client';
 import fs from 'fs';
 import handlebars from 'handlebars';
 import { PasswordResetRequest, User } from 'types';
+import { google } from 'googleapis';
 
 export class NodemailerEmailService implements ResetPasswordEmailService {
   async sendEmail(user: User, codeChallenge: string): Promise<void> {

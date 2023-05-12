@@ -1,7 +1,7 @@
 import { sign } from 'jsonwebtoken';
 import { HttpError } from '../../../../../src/shared/errors/appError';
 import { ICreateSolicitationResetPassword } from '../../repositories/CreateSolicitationResetPassword/ICreateSolicitationResetPassword';
-import { jwtModule } from '../../../../../src/config/TicketTokenResetPassword/ticketToken';
+import { jwtModule } from '../../../../config/TicketTokenResetPassword/ticketToken';
 import { hash } from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
 
