@@ -12,6 +12,7 @@ export class LogoutUseCase {
 
   async execute(token: string) {
     const { secret } = jwtModule;
+
     const [, onlyToken] = token.split(' ');
     const decoded: any = verify(onlyToken, secret);
     const expDate = new Date(decoded.exp * 1000);

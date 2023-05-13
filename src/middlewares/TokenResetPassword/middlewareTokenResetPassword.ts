@@ -21,24 +21,28 @@ async function middlewareTokenResetPassword(request: Request, response: Response
 
   const tokenId: any = await prisma.passwordResetRequest.findFirst({
     where: {
-      userId: decoded.id,
+      token: onlyToken,
     },
   });
 
-  try {
-    if (!tokenId) {
-      response.status(401).json({ error: true, message: 'Invalid token' });
-    }
-    if (tokenId.token !== onlyToken) {
-      response.status(401).json({ error: true, message: 'Invalid token' });
-    }
+  if (!tokenId) {
+    response.status(200).json({ error: false });
+    return;
+  }
 
+  if (onlyToken !== tokenId.token) {
+    response.status(401).json({ error: true, message: 'Invalid token' });
+    return;
+  }
+
+  try {
+    const decoded = verify(onlyToken, secret);
     next();
   } catch (error) {
     if (error instanceof TokenExpiredError) {
-      throw new HttpError('Token expired', 403);
+      response.status(403).json({ error: true, message: 'Token expired' });
     } else {
-      throw new HttpError('Invalid token', 401);
+      response.status(401).json({ error: true, message: 'Invalid token' });
     }
   }
 }

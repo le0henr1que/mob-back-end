@@ -3,12 +3,12 @@ import { PrismaClient } from '@prisma/client';
 import { User } from 'types';
 
 export class PrismaEmailService implements EmailService {
-  async getUser(to: string): Promise<User> {
+  async getUser(id: string): Promise<User> {
     const prisma = new PrismaClient();
 
     return await prisma.user.findUnique({
       where: {
-        email: to,
+        id: id,
       },
       select: {
         id: true,

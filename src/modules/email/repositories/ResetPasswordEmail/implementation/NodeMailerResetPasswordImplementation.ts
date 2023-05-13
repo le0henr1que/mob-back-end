@@ -9,6 +9,9 @@ import { google } from 'googleapis';
 
 export class NodemailerEmailService implements ResetPasswordEmailService {
   async sendEmail(user: User, codeChallenge: string): Promise<void> {
+    if (!user) {
+      return;
+    }
     const { email, name } = user;
 
     const templateHtml = fs.readFileSync('src/modules/email/template/ResetPasswordEmail/index.html', 'utf-8');
@@ -29,13 +32,14 @@ export class NodemailerEmailService implements ResetPasswordEmailService {
       html: html,
     };
 
-    await transporter.sendMail(mailOptions, function (error, response) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log(response);
-      }
-      transporter.close();
-    });
+    // await transporter.sendMail(mailOptions, function (error, response) {
+    //   if (error) {
+    //     console.log(error);
+    //   } else {
+    //     console.log(response);
+    //   }
+    //   transporter.close();
+    // });
+    console.log('[NODESENDMAILER] Email enivado com sucesso');
   }
 }

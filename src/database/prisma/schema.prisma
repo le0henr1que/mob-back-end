@@ -78,11 +78,11 @@ model PasswordResetRequest {
 
   id String @id @default(uuid())
   token String
-  userId          String
+  userId          String?
   codeChallenge String?
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
-  user User @relation(fields: [userId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
   status String @default("pending")
   // used
   // expired
