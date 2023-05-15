@@ -25,12 +25,12 @@ async function middlewareTokenResetPassword(request: Request, response: Response
   });
 
   if (!tokenId) {
-    response.status(200).json({ error: true, message: 'Invalid token' });
+    response.status(401).json({ error: true, message: 'Código inválido, reenvie o código e tente novamente.' });
     return;
   }
 
   if (onlyToken !== tokenId.token) {
-    response.status(401).json({ error: true, message: 'Invalid token' });
+    response.status(401).json({ error: true, message: 'Token inválido' });
     return;
   }
 

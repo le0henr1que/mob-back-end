@@ -12,8 +12,9 @@ export class VerifyChallengeUseCase {
     const userId = await decodeTokenResetPassword(token);
 
     const userCodeChellange = await this.verifyChallange.findCodeChallenge(userId);
+    console.log(userCodeChellange);
 
-    if (!userCodeChellange) {
+    if (userCodeChellange === null) {
       throw new HttpError('Código inválido, reenvie o código e tente novamente', 401);
     }
 
