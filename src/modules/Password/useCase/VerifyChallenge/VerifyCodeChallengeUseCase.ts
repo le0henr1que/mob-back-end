@@ -20,5 +20,7 @@ export class VerifyChallengeUseCase {
     if (!(await compare(codeChallenge, userCodeChellange.codeChallenge))) {
       throw new HttpError('Código inválido, reenvie o código e tente novamente', 401);
     }
+
+    await this.verifyChallange.updateStatus(userId);
   }
 }

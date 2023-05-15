@@ -7,14 +7,19 @@ import { VerifyChallengeUseCase } from '../VerifyChallenge/VerifyCodeChallengeUs
 import { decodeTokenResetPassword } from '../../../../utils/decodeTokenResetPassword/decodeTokenResetPassword';
 
 export class UpdatePasswordUseCase {
-  constructor(private updatePassword: IUpdatePassword, private verifyCodeChallange: VerifyChallengeUseCase) {}
+  constructor(private updatePassword: IUpdatePassword) {}
 
   async execute(token: string, newPassword: string, codeChallenge: string) {
     console.log('teste');
 
     const userId = await decodeTokenResetPassword(token);
 
-    await this.verifyCodeChallange.execute(token, codeChallenge);
+    const solicitationStatus = await this.updatePassword.getStatusSolicitation(userId);
+
+    console.log(solicitationStatus);
+    if (solicitationStatus.status !== 'used') {
+      throw new HttpError('Erro ao alterar a senha. Aguarde um momento e tente novamente.', 401);
+    }
 
     if (!newPassword) {
       throw new HttpError('Digite sua nova senha para prosseguir', 404);
