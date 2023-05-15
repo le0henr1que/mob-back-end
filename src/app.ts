@@ -3,7 +3,7 @@ import { routerUser } from './modules/user/userRoutes';
 import { routerLocal } from './modules/local/localRoutes';
 import { routerRating } from './modules/rating/ratingRoutes';
 import { authenticationRoute } from './modules/authentication/authenticationRoute';
-import { routerPassword } from './modules/Password/passwordRoutes';
+import { routerPassword } from './modules/password/passwordRoutes';
 import cors from 'cors';
 
 import { errorMiddleware } from './middlewares/error/errorMiddleware';

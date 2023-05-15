@@ -16,7 +16,7 @@ export class UpdatePasswordUseCase {
 
     const solicitationStatus = await this.updatePassword.getStatusSolicitation(userId);
 
-    console.log(solicitationStatus);
+    console.log(solicitationStatus.status);
     if (solicitationStatus.status !== 'used') {
       throw new HttpError('Erro ao alterar a senha. Aguarde um momento e tente novamente.', 401);
     }
