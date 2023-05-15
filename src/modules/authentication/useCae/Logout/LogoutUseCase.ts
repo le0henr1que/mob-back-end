@@ -14,8 +14,13 @@ export class LogoutUseCase {
     const { secret } = jwtModule;
 
     const [, onlyToken] = token.split(' ');
-    const decoded: any = verify(onlyToken, secret);
-    const expDate = new Date(decoded.exp * 1000);
-    await this.logoutRepository.executeLogout(onlyToken, expDate);
+
+    try {
+      const decoded: any = verify(onlyToken, secret);
+      const expDate = new Date(decoded.exp * 1000);
+      await this.logoutRepository.executeLogout(onlyToken, expDate);
+    } catch (error) {
+      if (error.name === 'TokenExpiredError') return;
+    }
   }
 }

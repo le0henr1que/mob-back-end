@@ -8,22 +8,20 @@ async function authMiddleware(request: Request, response: Response, next: NextFu
   const { secret, expireIn } = jwtModule;
 
   if (!authorization) {
-    throw new HttpError('Token not found', 404);
+    return response.status(404).json({ error: true, message: 'Token inexistente' });
   }
 
   const [, onlyToken] = request.headers.authorization.split(' ');
 
-  let decoded;
   try {
-    decoded = await verify(onlyToken, secret);
+    verify(onlyToken, secret);
+    next();
   } catch (error) {
     if (error instanceof TokenExpiredError) {
-      throw new HttpError('Token expired', 403);
+      return response.status(403).json({ error: true, message: 'Token expirado' });
     } else {
-      throw new HttpError('Invalid token', 401);
+      return response.status(401).json({ error: true, message: 'Token Inválido' });
     }
   }
-
-  next();
 }
 export default authMiddleware;

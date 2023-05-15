@@ -11,7 +11,7 @@ export class HttpError extends Error {
     this.message = message;
     this.statusCode = statusCode;
 
-    //   console.log("App Erro called")
+    console.log('App Erro called');
   }
 }
 

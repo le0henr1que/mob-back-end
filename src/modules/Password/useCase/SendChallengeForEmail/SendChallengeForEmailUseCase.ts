@@ -4,6 +4,7 @@ import { EmailService } from '../../repositories/SendChallengeForEmail/ISendChal
 import { jwtModule } from '../../../../config/TicketTokenResetPassword/ticketToken';
 import { hash } from 'bcryptjs';
 import { ResetPasswordEmailController } from '../../../email/useCase/ResetPasswordEmail/ResetPasswordEmailController';
+import { decodeTokenResetPassword } from '../../../../utils/decodeTokenResetPassword/decodeTokenResetPassword';
 
 export class SendChallengeForUseCase {
   codeChallenge: string;
@@ -19,18 +20,14 @@ export class SendChallengeForUseCase {
 
     codeChallenge = randomNumber.toString().padStart(6, '0');
 
-    const { secret, expireIn } = jwtModule;
-    const [, onlyToken] = token.split(' ');
-    const decoded = verify(onlyToken, secret);
-    const { id }: any = decoded;
+    const userId = await decodeTokenResetPassword(token);
 
-    const user = await this.emailService.getUser(id);
-
-    console.log(user);
+    const user = await this.emailService.getUser(userId);
 
     await this.sendEmailResetPassword.handle(user, codeChallenge);
 
     codeChallenge = await hash(codeChallenge, 8);
+
     await this.emailService.createCodeChallenge(user.email, codeChallenge);
   }
 }

@@ -12,12 +12,11 @@ async function middlewareTokenResetPassword(request: Request, response: Response
   const prisma = new PrismaClient();
 
   if (!authorization) {
-    throw new HttpError('Token not found', 404);
+    response.status(404).json({ error: true, message: 'Token inexistente' });
+    return;
   }
 
-  const [, onlyToken] = request.headers.authorization.split(' ');
-
-  const decoded: any = verify(onlyToken, secret);
+  const [, onlyToken] = authorization.split(' ');
 
   const tokenId: any = await prisma.passwordResetRequest.findFirst({
     where: {
@@ -26,7 +25,7 @@ async function middlewareTokenResetPassword(request: Request, response: Response
   });
 
   if (!tokenId) {
-    response.status(200).json({ error: false });
+    response.status(200).json({ error: true, message: 'Invalid token' });
     return;
   }
 
@@ -36,13 +35,13 @@ async function middlewareTokenResetPassword(request: Request, response: Response
   }
 
   try {
-    const decoded = verify(onlyToken, secret);
+    verify(onlyToken, secret);
     next();
   } catch (error) {
     if (error instanceof TokenExpiredError) {
-      response.status(403).json({ error: true, message: 'Token expired' });
+      return response.status(403).json({ error: true, message: 'Token expirado' });
     } else {
-      response.status(401).json({ error: true, message: 'Invalid token' });
+      return response.status(401).json({ error: true, message: 'Token Inválido' });
     }
   }
 }

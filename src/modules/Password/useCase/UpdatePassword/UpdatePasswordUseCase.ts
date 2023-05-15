@@ -4,15 +4,15 @@ import { IUpdatePassword } from '../../repositories/UpdatePassword/IUpdatePasswo
 import { jwtModule } from '../../../../config/TicketTokenResetPassword/ticketToken';
 import { compare, hash } from 'bcryptjs';
 import { VerifyChallengeUseCase } from '../VerifyChallenge/VerifyCodeChallengeUseCase';
+import { decodeTokenResetPassword } from '../../../../utils/decodeTokenResetPassword/decodeTokenResetPassword';
 
 export class UpdatePasswordUseCase {
   constructor(private updatePassword: IUpdatePassword, private verifyCodeChallange: VerifyChallengeUseCase) {}
 
   async execute(token: string, newPassword: string, codeChallenge: string) {
-    const { secret, expireIn } = jwtModule;
-    const [, onlyToken] = token.split(' ');
-    const decoded = verify(onlyToken, secret);
-    const { id }: any = decoded;
+    console.log('teste');
+
+    const userId = await decodeTokenResetPassword(token);
 
     await this.verifyCodeChallange.execute(token, codeChallenge);
 
@@ -22,8 +22,8 @@ export class UpdatePasswordUseCase {
 
     newPassword = await hash(newPassword, 8);
 
-    await this.updatePassword.updatePassword(id, newPassword);
+    await this.updatePassword.updatePassword(userId, newPassword);
 
-    await this.updatePassword.removeSolicitation(id);
+    await this.updatePassword.removeSolicitation(userId);
   }
 }

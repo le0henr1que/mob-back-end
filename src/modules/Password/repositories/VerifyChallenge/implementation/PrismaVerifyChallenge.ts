@@ -14,6 +14,6 @@ export class PrismaVerifyCodeChellange implements IVerifyChallenge {
       },
     });
 
-    return codeChallenge.codeChallenge;
+    return codeChallenge;
   }
 }

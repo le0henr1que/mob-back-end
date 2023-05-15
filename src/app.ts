@@ -21,7 +21,6 @@ app.use(routerLocal);
 app.use(routerRating);
 app.use(routerPassword);
 app.use(authenticationRoute);
-
 app.use(errorMiddleware);
 
 export { app };

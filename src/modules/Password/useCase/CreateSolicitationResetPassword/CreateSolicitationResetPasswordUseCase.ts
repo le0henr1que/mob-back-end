@@ -20,6 +20,7 @@ export class CreateSolicitationResetPasswordUseCase {
 
     if (!userId) {
       const token = sign({ id: uuid }, jwtModule.secret, { expiresIn: jwtModule.expireIn });
+      await this.createSolicitationResetPassword.createSolicitation(null, token);
       return token;
     }
   }

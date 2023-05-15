@@ -9,37 +9,37 @@ import { google } from 'googleapis';
 
 export class NodemailerEmailService implements ResetPasswordEmailService {
   async sendEmail(user: User, codeChallenge: string): Promise<void> {
-    if (!user) {
+    try {
+      const { email, name } = user;
+
+      const templateHtml = fs.readFileSync('src/modules/email/template/ResetPasswordEmail/index.html', 'utf-8');
+      const compiledTemplate = handlebars.compile(templateHtml);
+
+      const data = {
+        title: `${name}, aqui está seu código`,
+        name: name,
+        code: codeChallenge,
+      };
+
+      const html = compiledTemplate(data);
+
+      const mailOptions = {
+        from: 'mob@mob.com',
+        to: email,
+        subject: `Mob!`,
+        html: html,
+      };
+
+      await transporter.sendMail(mailOptions, function (error, response) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(response);
+        }
+        transporter.close();
+      });
+    } catch (error) {
       return;
     }
-    const { email, name } = user;
-
-    const templateHtml = fs.readFileSync('src/modules/email/template/ResetPasswordEmail/index.html', 'utf-8');
-    const compiledTemplate = handlebars.compile(templateHtml);
-
-    const data = {
-      title: `${name}, aqui está seu código`,
-      name: name,
-      code: codeChallenge,
-    };
-
-    const html = compiledTemplate(data);
-
-    const mailOptions = {
-      from: 'mob@mob.com',
-      to: email,
-      subject: `Mob!`,
-      html: html,
-    };
-
-    // await transporter.sendMail(mailOptions, function (error, response) {
-    //   if (error) {
-    //     console.log(error);
-    //   } else {
-    //     console.log(response);
-    //   }
-    //   transporter.close();
-    // });
-    console.log('[NODESENDMAILER] Email enivado com sucesso');
   }
 }
