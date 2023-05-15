@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import { HttpError } from '../../shared/errors/appError';
 import { jwtModule } from '../../config/Auth/auth';
 
-function authMiddleware(request: Request, response: Response, next: NextFunction) {
+async function authMiddleware(request: Request, response: Response, next: NextFunction) {
   const { authorization } = request.headers;
   const { secret, expireIn } = jwtModule;
 
@@ -13,9 +13,9 @@ function authMiddleware(request: Request, response: Response, next: NextFunction
 
   const [, onlyToken] = request.headers.authorization.split(' ');
 
+  let decoded;
   try {
-    const decoded = verify(onlyToken, secret);
-    next();
+    decoded = await verify(onlyToken, secret);
   } catch (error) {
     if (error instanceof TokenExpiredError) {
       throw new HttpError('Token expired', 403);
@@ -23,6 +23,7 @@ function authMiddleware(request: Request, response: Response, next: NextFunction
       throw new HttpError('Invalid token', 401);
     }
   }
-}
 
+  next();
+}
 export default authMiddleware;

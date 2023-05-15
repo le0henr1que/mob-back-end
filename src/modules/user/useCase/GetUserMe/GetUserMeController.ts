@@ -8,10 +8,6 @@ export class GetUserMeController {
   async handle(request: Request, response: Response): Promise<Response> {
     const [, onlyToken] = request.headers.authorization.split(' ');
 
-    if (!onlyToken) {
-      throw new HttpError('Token Não existente', 404);
-    }
-
     const userMe = await this.getUserMeUseCase.execute(onlyToken);
 
     return response.status(200).json({ error: false, userMe });
