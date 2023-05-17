@@ -5,6 +5,11 @@ const apiLimiter = rateLimit({
   max: 7, // Define o número máximo de solicitações permitidas nesse intervalo de tempo
   message:
     'Detectamos muitas tentativas de login em um curto período de tempo. Por favor, tente novamente mais tarde ou entre em contato com o suporte ao cliente para obter assistência.',
+  keyGenerator: function (req) {
+    // Defina a chave com base no IP do cliente
+    console.log(req.ip);
+    return req.ip;
+  },
 });
 
 export default apiLimiter;
