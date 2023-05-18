@@ -40,6 +40,7 @@ export class GoogleLoginUseCase {
         name: googleDataUser.data.name,
         password: randomPassword,
         picture: googleDataUser.data.picture,
+        cookieConsent: false,
       };
       console.log(randomPassword);
       const userCreated = await this.createUserUseCase.execute(dataUser);

@@ -6,6 +6,8 @@ export interface User {
   picture?: string;
   token?: string;
   accepted_terms?: boolean;
+  cookieConsent?: boolean;
+  authorization?: string;
 }
 
 export interface Comment {

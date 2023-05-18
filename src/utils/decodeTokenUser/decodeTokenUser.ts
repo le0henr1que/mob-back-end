@@ -5,6 +5,7 @@ import { jwtModule } from '../../config/Auth/auth';
 
 export async function decodeTokenUser(token: string): Promise<string> {
   try {
+    console.log(token);
     const { secret } = jwtModule;
     const [, onlyToken] = token.split(' ');
     const decoded: any = verify(onlyToken, secret);

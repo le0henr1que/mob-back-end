@@ -17,6 +17,7 @@ export class PrismaVerifyCodeChellange implements IVerifyChallenge {
       },
     });
   }
+
   async findCodeChallenge(id: string): Promise<any> {
     const prisma = new PrismaClient();
 

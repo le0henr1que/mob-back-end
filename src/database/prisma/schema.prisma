@@ -18,6 +18,7 @@ model User {
   picture String?
   password String
   accepted_terms Boolean
+  cookieConsent Boolean? @default(false)
   rating       Rating[]
   rasswordResetRequest PasswordResetRequest[]
 }

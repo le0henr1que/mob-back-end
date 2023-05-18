@@ -7,7 +7,7 @@ export class CreateUserUseCase {
   constructor(private createUserRepository: ICreateUser) {}
 
   async execute(dataUser: User) {
-    const { email, password, name, accepted_terms, picture } = dataUser;
+    const { email, password, name, accepted_terms, picture, cookieConsent } = dataUser;
 
     dataUser.password = await hash(password, 8);
 

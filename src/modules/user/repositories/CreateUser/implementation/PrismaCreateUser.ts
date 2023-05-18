@@ -5,7 +5,7 @@ import { ICreateUser } from '../ICreateUser';
 export class PrismaCreateUser implements ICreateUser {
   async executeCreateUser(dataUser: User): Promise<User> {
     const prisma = new PrismaClient();
-    const { name, email, password, accepted_terms, picture } = dataUser;
+    const { name, email, password, accepted_terms, picture, cookieConsent } = dataUser;
 
     return await prisma.user.create({
       data: {
@@ -14,6 +14,7 @@ export class PrismaCreateUser implements ICreateUser {
         password: password,
         accepted_terms: accepted_terms,
         picture: picture,
+        cookieConsent: cookieConsent,
       },
     });
   }

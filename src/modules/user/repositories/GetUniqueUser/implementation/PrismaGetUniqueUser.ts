@@ -16,6 +16,7 @@ export class PrismaGetUniqueUser implements IGetUniqueUser {
         email: true,
         accepted_terms: true,
         password: false,
+        cookieConsent: true,
       },
     });
   }

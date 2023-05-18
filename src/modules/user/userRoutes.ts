@@ -38,5 +38,12 @@ routerUser.put(
     return updateUserController.handle(request, response);
   }),
 );
+routerUser.put(
+  '/user',
+  authMiddleware,
+  resolver((request, response) => {
+    return updateUserController.handle(request, response);
+  }),
+);
 
 export { routerUser };

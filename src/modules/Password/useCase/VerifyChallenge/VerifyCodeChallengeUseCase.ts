@@ -15,11 +15,11 @@ export class VerifyChallengeUseCase {
     console.log(userCodeChellange);
 
     if (userCodeChellange === null) {
-      throw new HttpError('Código inválido, reenvie o código e tente novamente', 401);
+      throw new HttpError('Código inválido, reenvie o código e tente novamente.', 401);
     }
 
     if (!(await compare(codeChallenge, userCodeChellange.codeChallenge))) {
-      throw new HttpError('Código inválido, reenvie o código e tente novamente', 401);
+      throw new HttpError('Código inválido, reenvie o código e tente novamente.', 401);
     }
 
     await this.verifyChallange.updateStatus(userId);
