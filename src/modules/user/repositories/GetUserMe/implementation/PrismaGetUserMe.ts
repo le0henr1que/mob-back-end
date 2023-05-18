@@ -18,6 +18,7 @@ export class PrismaGetUserMe implements IGetUserMe {
         password: false,
         picture: true,
         cookieConsent: true,
+        confirmed_email: true,
       },
     });
   }

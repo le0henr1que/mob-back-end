@@ -8,6 +8,7 @@ export interface User {
   accepted_terms?: boolean;
   cookieConsent?: boolean;
   authorization?: string;
+  confirmed_email?: boolean;
 }
 
 export interface Comment {
