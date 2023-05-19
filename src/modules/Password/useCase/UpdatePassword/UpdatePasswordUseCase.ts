@@ -4,7 +4,7 @@ import { IUpdatePassword } from '../../repositories/UpdatePassword/IUpdatePasswo
 import { jwtModule } from '../../../../config/TicketTokenResetPassword/ticketToken';
 import { compare, hash } from 'bcryptjs';
 import { VerifyChallengeUseCase } from '../VerifyChallenge/VerifyCodeChallengeUseCase';
-import { decodeTokenResetPassword } from '../../../../utils/decodeTokenResetPassword/decodeTokenResetPassword';
+import { decodeToken } from '../../../../utils/decodeToken/decodeToken';
 
 export class UpdatePasswordUseCase {
   constructor(private updatePassword: IUpdatePassword) {}
@@ -12,7 +12,7 @@ export class UpdatePasswordUseCase {
   async execute(token: string, newPassword: string, codeChallenge: string) {
     console.log('teste');
 
-    const userId = await decodeTokenResetPassword(token);
+    const userId = await decodeToken(token, jwtModule.secret);
 
     const solicitationStatus = await this.updatePassword.getStatusSolicitation(userId);
 

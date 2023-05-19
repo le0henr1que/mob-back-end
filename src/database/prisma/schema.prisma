@@ -22,6 +22,7 @@ model User {
   cookieConsent Boolean? @default(false)
   rating       Rating[]
   rasswordResetRequest PasswordResetRequest[]
+  confirmEmailRequest ConfirmEmailRequest[]
 }
 
 
@@ -77,6 +78,20 @@ model Blacklist {
 }
 
 model PasswordResetRequest {
+
+  id String @id @default(uuid())
+  token String
+  userId          String?
+  codeChallenge String?
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+  user User? @relation(fields: [userId], references: [id])
+  status String @default("pending")
+  // used
+  // expired
+}
+
+model ConfirmEmailRequest {
 
   id String @id @default(uuid())
   token String

@@ -4,7 +4,7 @@ import { EmailService } from '../../repositories/SendChallengeForEmail/ISendChal
 import { jwtModule } from '../../../../config/TicketTokenResetPassword/ticketToken';
 import { hash } from 'bcryptjs';
 import { ResetPasswordEmailController } from '../../../email/useCase/ResetPasswordEmail/ResetPasswordEmailController';
-import { decodeTokenResetPassword } from '../../../../utils/decodeTokenResetPassword/decodeTokenResetPassword';
+import { decodeToken } from '../../../../utils/decodeToken/decodeToken';
 
 export class SendChallengeForUseCase {
   codeChallenge: string;
@@ -20,7 +20,7 @@ export class SendChallengeForUseCase {
 
     codeChallenge = randomNumber.toString().padStart(6, '0');
 
-    const userId = await decodeTokenResetPassword(token);
+    const userId = await decodeToken(token, jwtModule.secret);
 
     const user = await this.emailService.getUser(userId);
 

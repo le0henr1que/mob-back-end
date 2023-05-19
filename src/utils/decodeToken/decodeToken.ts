@@ -1,15 +1,13 @@
 import { verify, TokenExpiredError, JsonWebTokenError } from 'jsonwebtoken';
 import { NextFunction, Request, Response } from 'express';
 import { HttpError } from '../../shared/errors/appError';
-import { jwtModule } from '../../config/Auth/auth';
+import { jwtModule } from '../../config/TicketTokenResetPassword/ticketToken';
 
-export async function decodeTokenUser(token: string): Promise<string> {
+export async function decodeToken(token: string, secret: string): Promise<string> {
   try {
-    console.log(token);
-    const { secret } = jwtModule;
+    // const { secret } = jwtModule;
     const [, onlyToken] = token.split(' ');
     const decoded: any = verify(onlyToken, secret);
-
     return decoded.id;
   } catch (error) {
     if (error instanceof TokenExpiredError) {

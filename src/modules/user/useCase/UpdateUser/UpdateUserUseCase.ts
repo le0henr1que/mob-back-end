@@ -2,15 +2,15 @@ import { User } from 'types';
 import { IUpdateUser } from '../../repositories/UpdateUser/IUpdateUser';
 import { HttpError } from '../../../../shared/errors/appError';
 import { hash } from 'bcryptjs';
-import { decodeTokenUser } from '../../../../utils/decodeTokenUser/decodeTokenUser';
-
+import { decodeToken } from '../../../../utils/decodeToken/decodeToken';
+import { jwtModule } from '../../../../config/Auth/auth';
 export class UpdateUserUseCase {
   constructor(private updateUserRepository: IUpdateUser) {}
   async execute(dataUser: User) {
     const { password, authorization } = dataUser;
 
     if (authorization && !dataUser.id) {
-      dataUser.id = await decodeTokenUser(authorization);
+      dataUser.id = await decodeToken(authorization, jwtModule.secret);
     }
 
     const findUserById = await this.updateUserRepository.executeVerifyId(dataUser.id);

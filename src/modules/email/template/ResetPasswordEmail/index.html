@@ -1,57 +1,36 @@
+
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
+  <style>
+    @media only screen and (max-width: 600px) {
+      .container {
+        width: 100% !important;
+      }
+    }
+  </style>
 </head>
-<body>
-  <!-- <h1>Olá, {{name}}!</h1>
-  <p>{{message}}</p> -->
-  <table cellpadding="0" cellspacing="0" border="0" width="600" align="center" style="background-color: #ffffff; ">
-    
-    <table  border="0" width="600" align="center" style="padding:20px; border-bottom: 1px solid #c2c2c2; background: #006fec;">
-        <tr>
-            <td align="center"> 
-                
-                <img 
-                    style="float: left; width: 100px;"
-                    src="https://mob-front.vercel.app//static/media/mob-white.80326f15950231935650a375ef91a228.svg"
-                >
-
-            </td>
-        <tr>
-    </table>
-
-    <table  border="0" width="600" align="center" style="padding:20px; background: #FFF;">
-        <tr>
-            <td style="text-align: left;"> 
-               <p style="margin-top:0px;color:#262626;font-weight:700;font-size:20px;line-height:1.2; font-family: sans-serif;">Olá, {{name}}</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left;"> 
-                <p style="margin-top:0px;color:#4c4c4c;font-weight:400;font-size:16px;line-height:1.25; font-family: sans-serif;">Recebemos uma solicitação para redefinir a senha de sua conta no Mob!.</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left;"> 
-                <h2 style="margin:0;color:#262626;font-weight:700;font-size:24px;line-height:1.167; font-family: sans-serif;">{{code}}</h2>           
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left;"> 
-                <p style="margin:0;color:#4c4c4c;font-weight:400;font-size:16px;line-height:1.25; font-family: sans-serif;">Insira este código para concluir a redefinição.</p>
-            </td>
-        </tr>
-    </table>
-    <table  border="0" width="600" align="center" style="padding:20px; background:#e8e8e8;">
-        <tr>
-            <td style="text-align: left;"> 
-            </td>
-        </tr>
-      
-    </table>
-
-
+<body style="margin: 0; padding: 0;">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #ffffff;">
+    <tr>
+      <td align="center" style="padding: 20px; border-bottom: 1px solid #c2c2c2; background: #006fec;">
+        <!-- <img style="max-width: 100px;" src="../img/mobVector.png" alt="Logo"> -->
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="padding: 20px; background: #FFF;">
+        <p style="margin-top: 0; color: #262626; font-weight: 700; font-size: 20px; line-height: 1.2; font-family: sans-serif;">Olá, {{name}}</p>
+        <p style="margin-top: 0; color: #4c4c4c; font-weight: 400; font-size: 16px; line-height: 1.25; font-family: sans-serif;">Recebemos uma solicitação para redefinir a senha de sua conta no Mob!</p>
+        <h2 style="margin: 0; color: #262626; font-weight: 700; font-size: 24px; line-height: 1.167; font-family: sans-serif;">{{code}}</h2>
+        <p style="margin: 0; color: #4c4c4c; font-weight: 400; font-size: 16px; line-height: 1.25; font-family: sans-serif;">Insira este código para concluir a redefinição.</p>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" style="padding: 20px; background: #e8e8e8;">
+      </td>
+    </tr>
   </table>
 </body>
 </html>
