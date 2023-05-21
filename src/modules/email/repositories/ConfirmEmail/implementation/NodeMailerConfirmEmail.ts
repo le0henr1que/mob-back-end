@@ -10,13 +10,14 @@ import { google } from 'googleapis';
 export class NodemailerEmailService implements ConfirmEmailService {
   async sendEmail(user: User, token: string): Promise<void> {
     try {
+      console.log('tenta enviar o email');
       const { email, name } = user;
 
       const templateHtml = fs.readFileSync('src/modules/email/template/ConfirmEmail/index.html', 'utf-8');
       const compiledTemplate = handlebars.compile(templateHtml);
 
       const data = {
-        title: `${name}, aqui está seu código`,
+        title: `${name}, passamos aqui para confirmar seu email!!`,
         name: name,
         link: `${process.env.ROUTE_CONFIRM_EMAIL}?solicitation_token=${token}`,
       };
@@ -39,6 +40,7 @@ export class NodemailerEmailService implements ConfirmEmailService {
         transporter.close();
       });
     } catch (error) {
+      console.log('catch de envio de email');
       return;
     }
   }

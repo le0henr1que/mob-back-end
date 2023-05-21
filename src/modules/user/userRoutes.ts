@@ -4,16 +4,26 @@ import { createUserController } from './useCase/CreateUser/index';
 import { getUniqueUserController } from './useCase/GetUniqueUser/index';
 import { updateUserController } from './useCase/UpdateUser/index';
 import { createSolicitationConfirmEmailController } from './useCase/ConfirmEmail/index';
+import { verifyEmailController } from './useCase/VerifyTokenEmail/index';
 import authMiddleware from '../../middlewares/authentication/authenticationMiddleware';
+import middlewareConfirmEmailToken from '../../middlewares/TokenConfirmEmail/TokenConfirmEmail';
+('../../middlewares/TokenConfirmEmail/TokenConfirmEmail');
 import { getUserMeController } from '../user/useCase/GetUserMe';
 
 const routerUser = Router();
 
 routerUser.post(
-  '/confirmar-email',
+  '/confirm-email',
   authMiddleware,
   resolver((request, response) => {
     return createSolicitationConfirmEmailController.handle(request, response);
+  }),
+);
+routerUser.post(
+  '/confirm-email/verify-token',
+  middlewareConfirmEmailToken,
+  resolver((request, response) => {
+    return verifyEmailController.handle(request, response);
   }),
 );
 

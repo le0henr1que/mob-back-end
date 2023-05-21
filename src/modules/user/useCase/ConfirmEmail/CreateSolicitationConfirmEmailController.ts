@@ -7,7 +7,7 @@ export class CreateSolicitationConfirmEmailController {
   async handle(request: Request, response: Response) {
     const { authorization } = request.headers;
 
-    const ticket = await this.createSolicitationConfirmEmail.execute(authorization);
+    await this.createSolicitationConfirmEmail.execute(authorization);
 
     return response
       .status(200)

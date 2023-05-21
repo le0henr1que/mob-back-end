@@ -17,12 +17,13 @@ export class PrismaCreateSolicitationConfirmEmail implements ICreateSolicitation
   async createSolicitation(userId: string, token: string): Promise<void> {
     const prisma = new PrismaClient();
     try {
+      console.log('Exclui a solicitação já existente');
       await prisma.confirmEmailRequest.deleteMany({
         where: {
           userId: userId,
         },
       });
-
+      console.log('Cria uma nova solicitação');
       await prisma.confirmEmailRequest.create({
         data: {
           userId: userId,
