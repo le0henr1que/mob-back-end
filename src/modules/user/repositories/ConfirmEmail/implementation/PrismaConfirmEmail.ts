@@ -28,6 +28,7 @@ export class PrismaCreateSolicitationConfirmEmail implements ICreateSolicitation
         data: {
           userId: userId,
           token: token,
+          status: 'pending',
         },
       });
     } catch (error) {
