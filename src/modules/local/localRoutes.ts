@@ -3,6 +3,7 @@ import { getLocalController } from './useCase/GetLocal/index';
 import { listByIdLocalController } from './useCase/ListByIdLocal/index';
 import { updateLocalController } from './useCase/UpdateLocal/index';
 import { ratingListByLocalController } from './useCase/RatingListByLocal/index';
+import { searchLocalController } from './useCase/SearchLocal';
 import { Router, response } from 'express';
 import { resolver } from '../../shared/errors/appError';
 import authMiddleware from '../../middlewares/authentication/authenticationMiddleware';
@@ -17,6 +18,14 @@ routerLocal.post(
     return createLocalController.handle(request, response);
   }),
 );
+
+routerLocal.get(
+  '/search-local',
+  resolver((request, response) => {
+    return searchLocalController.handle(request, response);
+  }),
+);
+
 routerLocal.get(
   '/local',
   resolver((request, response) => {

@@ -53,6 +53,8 @@ model Local {
   id String @id @default(uuid())
   name String
   category String
+  cnpj String?
+  createdAt       DateTime @default(now())
   addressId   String?
   address     Address? @relation(fields: [addressId], references: [id])
   rating Rating[]
