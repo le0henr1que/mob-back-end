@@ -5,15 +5,15 @@ export class CreateLocalUseCase {
   constructor(private localRepositoryCreate: ICreateLocal) {}
 
   async execute(dataLocal: Local) {
-    const { name, category, address } = dataLocal;
+    const { name, categoryId, address } = dataLocal;
 
     const addressId = await this.localRepositoryCreate.executeCreateAddress(address);
     const { id } = addressId;
-    await this.localRepositoryCreate.executeCreate({ name, category, id });
+    await this.localRepositoryCreate.executeCreate({ name, categoryId, id });
 
     const result: Local = {
       name: name,
-      category: category,
+      categoryId: categoryId,
       address: addressId,
     };
 

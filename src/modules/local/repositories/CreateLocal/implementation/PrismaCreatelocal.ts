@@ -5,11 +5,11 @@ import { PrismaClient } from '@prisma/client';
 export class PrismaRepositoryCreateLocal implements ICreateLocal {
   async executeCreate(dataLocal: Local): Promise<Local> {
     const prisma = new PrismaClient();
-    const { name, category, id } = dataLocal;
+    const { name, subcategoryId, id } = dataLocal;
     return await prisma.local.create({
       data: {
         name: name,
-        category: category,
+        subcategoryId: subcategoryId,
         addressId: id,
       },
     });

@@ -55,10 +55,13 @@ export interface Address {
 export interface Local {
   id?: string;
   name: string;
-  category?: string;
+  categoryId?: number;
+  subcategoryId?: number | null;
   rating?: string;
   address?: Address;
   addressId?: string;
+  // subcategoryId?:number;
+  // categoryId?:number;
 }
 export interface PasswordResetRequest {
   id?: string;
@@ -69,4 +72,17 @@ export interface PasswordResetRequest {
   updated_at?: Date;
   user?: User;
   status?: string;
+}
+export interface Category {
+  id?: number;
+  name: String;
+  subcategory?: Subcategory[];
+  local?: Local;
+}
+
+export interface Subcategory {
+  id?: number;
+  name: String;
+  catergory?: Category;
+  local?: Local;
 }
