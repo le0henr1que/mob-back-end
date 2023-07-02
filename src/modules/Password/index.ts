@@ -1,9 +1,10 @@
-import { Router } from 'express';
 import { resolver } from '../../shared/errors/appError';
 import { createSolicitationResetPasswordController } from './useCase/CreateSolicitationResetPassword';
 import { sendChallengeForEmailController } from './useCase/SendChallengeForEmail';
 import { verifyCodeChallengeController } from './useCase/VerifyChallenge/index';
 import { updatePasswordController } from './useCase/UpdatePassword/index';
+
+import { Router } from 'express';
 
 import middlewareTokenResetPassword from '../../middlewares/TokenResetPassword/middlewareTokenResetPassword';
 

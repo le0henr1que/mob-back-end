@@ -4,7 +4,7 @@ import { routerLocal } from './modules/local/localRoutes';
 import { routerRating } from './modules/rating/ratingRoutes';
 import { authenticationRoute } from './modules/authentication/authenticationRoute';
 
-import { routerPassword } from '../src/modules/password/routerPassword';
+import { routerPassword } from './modules/password';
 import cors from 'cors';
 
 import { errorMiddleware } from './middlewares/error/errorMiddleware';
