@@ -15,9 +15,5 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY src ./src
 
-COPY .env .env
-
-ENV NODE_ENV=production
-
 
 CMD [ "node", "src/server.js" ]
