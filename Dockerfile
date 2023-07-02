@@ -10,8 +10,6 @@ RUN npm install
 
 RUN npm run build
 
-run 
-
 COPY wait-for-db.sh /src/wait-for-db.sh
 RUN chmod +x /src/wait-for-db.sh
 
