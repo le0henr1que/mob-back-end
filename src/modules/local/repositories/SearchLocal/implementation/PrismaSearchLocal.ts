@@ -20,6 +20,7 @@ export class PrismaRepositorySearchLocal implements ISearchLocal {
         id: true,
         name: true,
         category: false,
+
         address: false,
       },
     });
