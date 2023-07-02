@@ -10,8 +10,9 @@ RUN npm install
 
 RUN npm run build
 
-# RUN npx prisma db push -y
-# RUN npx prisma migrate dev --name migration_deploy
-# RUN npx prisma migrate deploy
+run 
 
-CMD ["npm", "start"]
+COPY wait-for-db.sh /src/wait-for-db.sh
+RUN chmod +x /src/wait-for-db.sh
+
+CMD ["/bin/bash", "-c", "/src/wait-for-db.sh && npm start"]
