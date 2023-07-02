@@ -1,6 +1,6 @@
 FROM node:latest
 
-WORKDIR /src
+WORKDIR /app
 
 RUN npm install prisma -g
 
@@ -10,8 +10,4 @@ RUN npm install
 
 RUN npm run build
 
-# COPY wait-for-db.sh /src/wait-for-db.sh
-# RUN chmod +x /src/wait-for-db.sh
-
-# CMD ["/bin/bash", "-c", "/src/wait-for-db.sh && npm start"]
 CMD ["npm", "start"]
