@@ -13,9 +13,11 @@ FROM base as build
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+COPY src ./src
+
+COPY .env .env
 
 ENV NODE_ENV=production
 
 
-CMD [ "node", "server.js" ]
+CMD [ "node", "src/server.js" ]
