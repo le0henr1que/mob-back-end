@@ -1,13 +1,21 @@
-FROM node:latest
+FROM node:18-alpine as base
+
+FROM base as deps
 
 WORKDIR /app
 
-RUN npm install prisma -g
+# Install app dependencies
+COPY package*.json ./
+RUN npm ci
 
+FROM base as build
+
+WORKDIR /app
+
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN npm install
+ENV NODE_ENV=production
 
-RUN npm run build
 
-CMD ["npm", "start"]
+CMD [ "node", "server.js" ]
